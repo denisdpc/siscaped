@@ -11,6 +11,13 @@
 
 <h3>Necessidade Estratégica - ({ $necessidadeEstrategica })</h3>
 
-{#each lista as {id, item, descricao}}        
-    <input type="radio" bind:group={ $necessidadeEstrategica } value={id}>{item} - {descricao}<br>
-{/each}
+<div class="space-y-2">    
+    {#each lista as {id, item, descricao}}        
+        <label class="flex items-center space-x-2">            
+            <input class="radio" type="radio" name="estrategica" 
+                bind:group={ $necessidadeEstrategica } 
+                value={id} />
+            <p>{item} - {descricao}</p>
+        </label>
+    {/each}    
+</div>
