@@ -3,9 +3,9 @@
     import { cicloTecnologico, maturidadeTecnologica } from '$lib/shared/stores.js';
 
     const lista_bemServicoObraInfo = [
-        {id: 6, item: 'Inovador', descricao: ''},
-        {id: 5, item: 'Contemporaneo', descricao: ''},
-        {id: 4, item: 'Ostensivo', descricao: ''}        
+        {id: 3, item: 'Inovador', descricao: ''},
+        {id: 2, item: 'Contemporaneo', descricao: ''},
+        {id: 1, item: 'Ostensivo', descricao: ''}        
     ]
     const lista_projeto = [
         {id: 3, item: 'Radical', descricao: ''},

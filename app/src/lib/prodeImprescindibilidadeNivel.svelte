@@ -2,7 +2,7 @@
     import { imprescindibilidade } from '$lib/shared/stores.js';
 </script>
 
-Imprescindibilidade (
+* Imprescindibilidade (
     {#if $imprescindibilidade > -1}
         { $imprescindibilidade }
     {:else}

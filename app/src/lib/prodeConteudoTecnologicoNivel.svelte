@@ -3,7 +3,7 @@
 </script>
 
 
-Conteúdo Tecnológico (
+* Conteúdo Tecnológico (
     {#if $conteudoTecnologico > -1} 
         { $conteudoTecnologico }
     {:else}

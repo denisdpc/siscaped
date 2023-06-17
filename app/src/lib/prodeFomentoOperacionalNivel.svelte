@@ -2,7 +2,7 @@
     import { fomentoOperacional } from '$lib/shared/stores.js';
 </script>
 
-Fomento Operacional (
+* Fomento Operacional (
     {#if $fomentoOperacional > -1}
         { $fomentoOperacional }
     {:else}
