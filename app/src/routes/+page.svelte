@@ -8,15 +8,9 @@
     import DisponibilidadeProdutiva from "$lib/DisponibilidadeProdutiva.svelte";
     import NecessidadeEstrategica from "$lib/NecessidadeEstrategica.svelte";
     import NecessidadeTatica from "$lib/NecessidadeTatica.svelte";
-
-	import ProdeConteudoTecnologico from "$lib/prodeConteudoTecnologico.svelte";
-	import ProdeDificuldadeObtencao from "$lib/prodeDificuldadeObtencao.svelte";    
-	import ProdeImprescindibilidade from "$lib/prodeImprescindibilidade.svelte";
-    import ProdeFomentoOperacional from "$lib/prodeFomentoOperacional.svelte";	
-	import ProdeCategorizacao from "$lib/prodeCategorizacao.svelte";
 </script>
 
-<Accordion>
+<Accordion autocollapse>
 	<!-- <AccordionItem open>		 -->
 	<AccordionItem>
 		<svelte:fragment slot="summary"><h3 class="h3 bg-black">Maturidade Tecnológica</h3></svelte:fragment>
@@ -45,16 +39,6 @@
 	<AccordionItem>		
 		<svelte:fragment slot="summary"><h3 class="h3 bg-black">Necessidade Tática</h3></svelte:fragment>
 		<svelte:fragment slot="content"><NecessidadeTatica /></svelte:fragment>
-	</AccordionItem>
-	<AccordionItem>		
-		<svelte:fragment slot="summary"><h3 class="h3 bg-black">Parametrização</h3></svelte:fragment>
-		<svelte:fragment slot="content">
-			<ProdeConteudoTecnologico />
-			<ProdeDificuldadeObtencao />
-			<ProdeImprescindibilidade />
-			<ProdeFomentoOperacional />
-			<ProdeCategorizacao />
-		</svelte:fragment>		
 	</AccordionItem>
 </Accordion>
 

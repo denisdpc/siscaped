@@ -16,14 +16,3 @@
     grupo = "dominio"
     parametro = { disponibilidadeLogistica } 
 />
-<!-- 
-<div class="space-y-2">
-    {#each lista as {id, item, descricao}}        
-        <label class="flex items-center space-x-2">
-            <input class="radio" type="radio" name="logistica" 
-                   bind:group={ $disponibilidadeLogistica } 
-                   value={id} />
-            <p>{item} - {descricao}</p>
-        </label>        
-    {/each}
-</div> -->

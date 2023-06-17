@@ -1,4 +1,5 @@
 <script>
+    import Opcionario from '$lib/Opcionario.svelte';
     import { necessidadeEstrategica } from '$lib/shared/stores.js';
 
     const lista = [
@@ -8,16 +9,10 @@
     ]    
 </script>
 
-
 <h3>Necessidade Estratégica - ({ $necessidadeEstrategica })</h3>
 
-<div class="space-y-2">    
-    {#each lista as {id, item, descricao}}        
-        <label class="flex items-center space-x-2">            
-            <input class="radio" type="radio" name="estrategica" 
-                bind:group={ $necessidadeEstrategica } 
-                value={id} />
-            <p>{item} - {descricao}</p>
-        </label>
-    {/each}    
-</div>
+<Opcionario 
+	lista={lista}
+    grupo = "estrategica"
+    parametro = { necessidadeEstrategica } 
+/>
