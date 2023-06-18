@@ -6,9 +6,9 @@
     $: {
         if ($dominioTecnologico && $cicloTecnologico) {
             if ($maturidadeTecnologica > 3) {                
-                $conteudoTecnologico = matrizBemServicoObraInfo[3-$dominioTecnologico][$cicloTecnologico-1];        
+                $conteudoTecnologico = matrizBemServicoObraInfo[3-$dominioTecnologico][$cicloTecnologico-1];                    
             } else {
-                $conteudoTecnologico = matrizProjeto[3-$dominioTecnologico][$cicloTecnologico-1];
+                $conteudoTecnologico = matrizProjeto[3-$dominioTecnologico][$cicloTecnologico-1];                                
             }   
         }
     }

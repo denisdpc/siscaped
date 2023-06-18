@@ -12,19 +12,19 @@
 	import '../app.postcss';
 
 	import { AppShell, AppBar } from '@skeletonlabs/skeleton';
-	import Parametrizacao from '$lib/Parametrizacao.svelte';
-						
+	import Parametrizacao from '$lib/Parametrizacao.svelte';						
 </script>
 
 <AppShell slotSidebarLeft="bg-surface-500/5 w-40 p-1">
-	<svelte:fragment slot="header">
-		<!-- App Bar -->
+	<svelte:fragment slot="header">		
 		<AppBar>
 			<svelte:fragment slot="lead">
 				<strong class="text-xl uppercase"><a href="/">SISCAPED</a></strong>
-			</svelte:fragment>			
+			</svelte:fragment>
 			<svelte:fragment slot="trail">
-				<a href="/sobre">Sobre</a>
+				<a href="/ler">ler</a>
+				<a href="/salvar">salvar</a>
+				<a href="/sobre">sobre</a>
 			</svelte:fragment>			
 		</AppBar>
 	</svelte:fragment>
