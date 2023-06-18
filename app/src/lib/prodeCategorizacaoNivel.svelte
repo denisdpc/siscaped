@@ -1,11 +1,7 @@
 <script>
     import { categorizacao } from '$lib/shared/stores.js';
+	import ParametroFormat from '$lib/ParametroFormat.svelte';
 </script>
 
-* Categorização (
-    {#if $categorizacao == -1}
-        ---
-    {:else}
-        { $categorizacao }
-    {/if}
-)
+* <ParametroFormat nome = "Categorização"
+                   valor = {$categorizacao} />

@@ -4,7 +4,7 @@
 	import ProdeImprescindibilidade from "$lib/prodeImprescindibilidade.svelte";
     import ProdeFomentoOperacional from "$lib/prodeFomentoOperacional.svelte";	
 	import ProdeCategorizacao from "$lib/prodeCategorizacao.svelte";
-       
+    import ParametroFormat from "$lib/ParametroFormat.svelte";  
 
     import { maturidadeTecnologica, 
             dominioTecnologico, cicloTecnologico,
@@ -22,31 +22,35 @@
     <hr><br>
     <ProdeConteudoTecnologico />
     <br>
-    Domínio Tecnológico ( { $dominioTecnologico } )
+    - Domínio Tecnológico ( { $dominioTecnologico } )
     <br><br>
-    Ciclo Tecnológico ( { $cicloTecnologico } )
+    - Ciclo Tecnológico ( { $cicloTecnologico } )
     <br><br><hr><br>
     <ProdeDificuldadeObtencao />
     <br>
-    Disponibilidade Logística ( { $disponibilidadeLogistica } )
+    - Disponibilidade Logística ( { $disponibilidadeLogistica } )
     <br><br>
-    Disponibilidade Produtiva ( { $disponibilidadeProdutiva } )
+    - Disponibilidade Produtiva ( { $disponibilidadeProdutiva } )
     <br><br><hr><br>
     <ProdeImprescindibilidade />
     <br>
-    Necessidade Estratégica ( { $necessidadeEstrategica } )
+    - Necessidade Estratégica ( { $necessidadeEstrategica } )
     <br><br>
-    Necessidade Tática ( { $necessidadeTatica } )
+    - Necessidade Tática ( { $necessidadeTatica } )
     <br><br><hr><br>
     <ProdeFomentoOperacional />    
     <br>
-    Conteúdo Tecnológico ( { $conteudoTecnologico } )
+    - <ParametroFormat nome = "Conteúdo Tecnológico"
+                       valor = {$conteudoTecnologico} />
     <br><br>
-    Imprescindibilidade ( { $imprescindibilidade } )
+    - <ParametroFormat nome = "Imprescindibilidade"
+                       valor = {$imprescindibilidade} />
     <br><br><hr><br>
     <ProdeCategorizacao />
-    <br><br>
-    Fomento Operacional ( { $fomentoOperacional } )
-    <br><br>
-    Dificuldade de Obtenção ( { $dificuldadeObtencao } )    
+    <br><br>    
+    - <ParametroFormat nome = "Fomento Operacional"
+                       valor = {$fomentoOperacional} />
+    <br><br>    
+    - <ParametroFormat nome = "Dificuldade de Obtenção"
+                       valor = {$dificuldadeObtencao} />
 </div>

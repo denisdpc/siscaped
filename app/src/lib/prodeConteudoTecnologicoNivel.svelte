@@ -1,12 +1,7 @@
 <script>
     import { conteudoTecnologico } from '$lib/shared/stores.js';
+	import ParametroFormat from '$lib/ParametroFormat.svelte';
 </script>
 
-
-* Conteúdo Tecnológico (
-    {#if $conteudoTecnologico > -1} 
-        { $conteudoTecnologico }
-    {:else}
-        ---
-    {/if}
-)
+* <ParametroFormat nome = "Conteúdo Tecnológico"
+                   valor = {$conteudoTecnologico} />
