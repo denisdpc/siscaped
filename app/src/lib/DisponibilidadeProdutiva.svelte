@@ -3,9 +3,9 @@
     import { disponibilidadeProdutiva } from '$lib/shared/stores.js';
 
     const lista = [
-        {id: 3, item: 'Alta', descricao: ''},
-        {id: 2, item: 'Média', descricao: ''},
-        {id: 1, item: 'Baixa', descricao: ''},
+        {id: 3, item: 'Alta', descricao: 'autonomia produtiva nacional para viabilizar a sua concepção'},
+        {id: 2, item: 'Média', descricao: 'restrição produtiva internacional, de parte ou total, para viabilizar a sua concepção'},
+        {id: 1, item: 'Baixa', descricao: 'dependência produtiva internacional, de parte ou total, para viabilizar a sua concepção'},
     ]    
 </script>
 

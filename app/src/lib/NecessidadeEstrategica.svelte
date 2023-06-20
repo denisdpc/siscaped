@@ -3,9 +3,9 @@
     import { necessidadeEstrategica } from '$lib/shared/stores.js';
 
     const lista = [
-        {id: 3, item: 'Alta', descricao: ''},
-        {id: 2, item: 'Média', descricao: ''},
-        {id: 1, item: 'Baixa', descricao: ''},
+        {id: 3, item: 'Alta', descricao: 'alta restrição operacional, decorrente da inviabilidade do produto, na execução da concepção estratégica'},
+        {id: 2, item: 'Média', descricao: 'média restrição operacional, decorrente da inviabilidade do produto, na execução da concepção estratégica'},
+        {id: 1, item: 'Baixa', descricao: 'baixa restrição operacional, decorrente da inviabilidade do produto, na execução da concepção estratégica'},
     ]    
 </script>
 
