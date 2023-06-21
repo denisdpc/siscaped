@@ -1,6 +1,6 @@
 <script>
     export let lista;
-    export let grupo;
+    export let grupo='';
     export let parametro;
 </script>
 

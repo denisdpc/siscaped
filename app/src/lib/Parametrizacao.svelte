@@ -19,7 +19,7 @@
     <h2 class="h2">Parametrização</h2>
     <br>
     Maturidade Tecnológica ( {$maturidadeTecnologica} )
-    <hr><br>
+    <br><br><hr><br>
     <ProdeConteudoTecnologico />
     <br>
     - Domínio Tecnológico ( { $dominioTecnologico } )
