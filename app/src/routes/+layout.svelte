@@ -10,7 +10,8 @@
 
 	// Finally, your application's global stylesheet (sometimes labeled 'app.css')
 	import '../app.postcss';
-
+	
+	import ArquivoLer from '$lib/ArquivoLer.svelte';
 	import { AppShell, AppBar } from '@skeletonlabs/skeleton';
 	import Parametrizacao from '$lib/Parametrizacao.svelte';						
 </script>
@@ -22,9 +23,10 @@
 				<strong class="text-xl uppercase"><a href="/">SISCAPED</a></strong>
 			</svelte:fragment>
 			<svelte:fragment slot="trail">
-				<a href="/ler">ler</a>
+				<ArquivoLer />				
 				<a href="/salvar">salvar</a>
 				<a href="/sobre">sobre</a>
+				
 			</svelte:fragment>			
 		</AppBar>
 	</svelte:fragment>

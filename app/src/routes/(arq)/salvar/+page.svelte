@@ -1,6 +1,4 @@
 <script lang="ts">
-    import { FileButton } from '@skeletonlabs/skeleton';
-
     import { maturidadeTecnologica, 
              cicloTecnologico, 
              dominioTecnologico,
@@ -17,8 +15,6 @@
 
     let fileNameSalve = '';
     
-    let fileNameRead: FileList;
-
     const jsonData = {
         maturidadeTecnologica: $maturidadeTecnologica,
         cicloTecnologico: $cicloTecnologico,
@@ -39,28 +35,17 @@
         const a = document.createElement("a");
         const file = new Blob([content], {type: "text/plain"});
         a.href = URL.createObjectURL(file);
-        a.download = fileNameSalve.concat('.json');
+        a.download = fileNameSalve.concat('.ped');
         a.click();
-    }
-
-    function upload() {
-        console.log("upload")
     }
 
 </script>
 
 <br><br>
-<!-- <div class="input-group input-group-divider grid-cols-[auto_1fr_auto]"> -->
+
 <div class="input-group input-group-divider grid-cols-[auto_1fr_auto]">
 	<div class="input-group-shim">Armazenar</div>
 	<input bind:value={fileNameSalve} 
            placeholder=" empresa - identificação do item" />
 	<button class="variant-filled-secondary" on:click={download}>Salvar</button>
 </div>
-
-<br><br>
-<hr>
-<br><br>
-
-<FileButton on:change={upload} bind:files={fileNameRead} 
-            name="files" button="variant-soft-primary">ler arquivo</FileButton>
