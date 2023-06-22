@@ -62,5 +62,5 @@
 <hr>
 <br><br>
 
-<FileButton on:change={upload} bind:files={fileNameRead}
+<FileButton on:change={upload} bind:files={fileNameRead} 
             name="files" button="variant-soft-primary">ler arquivo</FileButton>
