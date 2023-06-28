@@ -37,5 +37,5 @@
     }
 </script>
 
-<FileButton type="file" name="files" button="variant-soft-primary"
+<FileButton type="file" name="files" button="variant-filled"
     accept=".ped" on:change={upload} bind:files={files}>ler arquivo</FileButton>

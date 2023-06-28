@@ -11,10 +11,23 @@
 	// Finally, your application's global stylesheet (sometimes labeled 'app.css')
 	import '../app.postcss';
 	
-	import ArquivoLer from '$lib/ArquivoLer.svelte';
-	import ArquivoSalvar from '$lib/ArquivoSalvar.svelte';
 	import { AppShell, AppBar } from '@skeletonlabs/skeleton';
-	import Parametrizacao from '$lib/Parametrizacao.svelte';						
+
+	import ArquivoLer from '$lib/ArquivoLer.svelte';
+	import ArquivoSalvar from '$lib/ArquivoSalvar.svelte';	
+	import Parametrizacao from '$lib/Parametrizacao.svelte';	
+	
+
+	let janelaSalvarAberta = false;
+	function salvar() {		
+		janelaSalvarAberta = true;		
+	}
+
+	function handleMessage() {
+		janelaSalvarAberta = false;
+	}
+
+
 </script>
 
 <AppShell slotSidebarLeft="bg-surface-500/5 w-40 p-1">
@@ -25,8 +38,11 @@
 			</svelte:fragment>
 			<svelte:fragment slot="trail">
 				<ArquivoLer />
-				<ArquivoSalvar />				
-				<a href="/salvar">salvar</a>
+				<button on:click={salvar} type="button" class="btn variant-filled">salvar arquivo</button>
+				{#if janelaSalvarAberta}
+					<ArquivoSalvar on:message={handleMessage} />					
+				{/if}
+				<!-- <a href="/salvar">salvar</a> -->
 				<a href="/sobre">sobre</a>
 				
 			</svelte:fragment>			
