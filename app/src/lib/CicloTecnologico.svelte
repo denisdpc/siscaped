@@ -5,7 +5,7 @@
     const lista_bemServicoObraInfo = [
         {id: 3, item: 'Inovador', descricao: 'reflete o incremento da capacidade operacional através de tecnologias inovadoras, de parte ou total'},
         {id: 2, item: 'Contemporaneo', descricao: 'reflete o incremento da capacidade operacional através de absorção de tecnologia contemporânea, de parte ou total'},
-        {id: 1, item: 'Ostensivo', descricao: 'reflete a capacidade operacional baseada na tecnologia ostensiva'}        
+        {id: 1, item: 'Domínio Público', descricao: 'reflete a capacidade operacional baseada na tecnologia ostensiva'}        
     ]
     const lista_projeto = [
         {id: 3, item: 'Radical', descricao: 'reflete mudanças tanto na estrutura do mercado quanto na tecnologia existente. Ele ocasiona o surgimento de novas estruturas, que normalmente sobrepõem às estruturas conhecidas'},
