@@ -31,6 +31,10 @@
 
 </script>
 
+<svelte:head>
+	<title>SisCaPED</title>
+</svelte:head>
+
 <AppShell slotSidebarLeft="bg-surface-500/5 w-40 p-1">
 	<svelte:fragment slot="header">		
 		<AppBar>
