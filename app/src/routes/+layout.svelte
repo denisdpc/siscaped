@@ -12,6 +12,7 @@
 	import '../app.postcss';
 	
 	import { AppShell, AppBar } from '@skeletonlabs/skeleton';
+	import manual from '$lib/assets/manual.pdf'
 
 	import ArquivoLer from '$lib/ArquivoLer.svelte';
 	import ArquivoSalvar from '$lib/ArquivoSalvar.svelte';	
@@ -42,9 +43,9 @@
 				{#if janelaSalvarAberta}
 					<ArquivoSalvar on:message={handleMessage} />					
 				{/if}
-				<!-- <a href="/salvar">salvar</a> -->
-				<a href="/sobre">sobre</a>
-				
+				<!-- <a href="/manual">manual</a> -->
+				<a href="{manual}" target="_blank">manual</a>
+				<a href="/sobre">sobre</a>				
 			</svelte:fragment>			
 		</AppBar>
 	</svelte:fragment>
