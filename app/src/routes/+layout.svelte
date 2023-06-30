@@ -15,7 +15,7 @@
 	import manual from '$lib/assets/manual.pdf'
 
 	import ArquivoLer from '$lib/ArquivoLer.svelte';
-	import ArquivoSalvar from '$lib/ArquivoSalvar.svelte';	
+	import ArquivoGerar from '$lib/ArquivoGerar.svelte';	
 	import Parametrizacao from '$lib/Parametrizacao.svelte';	
 	
 
@@ -43,11 +43,10 @@
 			</svelte:fragment>
 			<svelte:fragment slot="trail">
 				<ArquivoLer />
-				<button on:click={salvar} type="button" class="btn variant-filled">salvar arquivo</button>
+				<button on:click={salvar} type="button" class="btn variant-filled">gerar arquivo</button>
 				{#if janelaSalvarAberta}
-					<ArquivoSalvar on:message={handleMessage} />					
-				{/if}
-				<!-- <a href="/manual">manual</a> -->
+					<ArquivoGerar on:message={handleMessage} />					
+				{/if}				
 				<a href="{manual}" target="_blank">manual</a>
 				<a href="/sobre">sobre</a>				
 			</svelte:fragment>			
