@@ -1,7 +1,8 @@
 <script lang="ts">
     import { FileButton } from '@skeletonlabs/skeleton';
 
-    import { maturidadeTecnologica, 
+    import { empresa, produto, organizacaoMilitar, analista,
+             maturidadeTecnologica, 
              cicloTecnologico, 
              dominioTecnologico,
              conteudoTecnologico,
@@ -25,6 +26,11 @@
         const conteudo = await f.text();
         const jsonData = JSON.parse(conteudo);
         
+        $empresa = jsonData['empresa']
+        $produto = jsonData['produto']
+        $organizacaoMilitar = jsonData['organizacaoMilitar']
+        $analista = jsonData['analista']        
+
         $maturidadeTecnologica = jsonData['maturidadeTecnologica']
         $cicloTecnologico = jsonData['cicloTecnologico']
         $dominioTecnologico = jsonData['dominioTecnologico']

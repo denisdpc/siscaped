@@ -1,6 +1,8 @@
 <script>
 	import { Accordion, AccordionItem } from '@skeletonlabs/skeleton';
 
+	import Identificacao from '$lib/Identificacao.svelte';
+
 	import MaturidadeTecnologica from "$lib/MaturidadeTecnologica.svelte";    
     import DominioTecnologico from "$lib/DominioTecnologico.svelte";
     import CicloTecnologico from "$lib/CicloTecnologico.svelte";
@@ -17,6 +19,10 @@
 
 <Accordion autocollapse>
 	<!-- <AccordionItem open>		 -->
+	<AccordionItem>
+		<svelte:fragment slot="summary"><h3 class="h3 bg-black">Identificação</h3></svelte:fragment>
+		<svelte:fragment slot="content"><Identificacao /></svelte:fragment>
+	</AccordionItem>	
 	<AccordionItem>
 		<svelte:fragment slot="summary"><h3 class="h3 bg-black">Maturidade Tecnológica</h3></svelte:fragment>
 		<svelte:fragment slot="content"><MaturidadeTecnologica /></svelte:fragment>

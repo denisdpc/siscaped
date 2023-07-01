@@ -5,7 +5,8 @@
 
     const dispatch = createEventDispatcher();
 
-    import { maturidadeTecnologica, 
+    import { empresa, produto, organizacaoMilitar, analista, 
+             maturidadeTecnologica, 
              cicloTecnologico, 
              dominioTecnologico,
              conteudoTecnologico,
@@ -23,13 +24,17 @@
             } from "$lib/shared/stores";
 
     const jsonData = {
-        maturidadeTecnologica: $maturidadeTecnologica,
-        cicloTecnologico: $cicloTecnologico,
-        dominioTecnologico: $dominioTecnologico,
-        disponibilidadeLogistica: $disponibilidadeLogistica,
-        disponibilidadeProdutiva: $disponibilidadeProdutiva,
-        necessidadeEstrategica: $necessidadeEstrategica,
-        necessidadeTatica: $necessidadeTatica,
+        'empresa': $empresa, 
+        'produto': $produto, 
+        'organizacaoMilitar': $organizacaoMilitar,
+        'analista': $analista,         
+        'maturidadeTecnologica': $maturidadeTecnologica,
+        'cicloTecnologico': $cicloTecnologico,
+        'dominioTecnologico': $dominioTecnologico,
+        'disponibilidadeLogistica': $disponibilidadeLogistica,
+        'disponibilidadeProdutiva': $disponibilidadeProdutiva,
+        'necessidadeEstrategica': $necessidadeEstrategica,
+        'necessidadeTatica': $necessidadeTatica,
         calculados: {
             'conteudoTecnologico': $conteudoTecnologico,
             'dificuldadeObtencao': $dificuldadeObtencao,

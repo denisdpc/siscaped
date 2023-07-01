@@ -1,5 +1,10 @@
 import { writable } from 'svelte/store';
 
+export const empresa = writable('');
+export const produto = writable('');
+export const organizacaoMilitar = writable('');
+export const analista = writable('');
+
 export const maturidadeTecnologica = writable(0);
 
 export const cicloTecnologico = writable(0);
