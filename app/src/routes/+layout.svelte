@@ -14,8 +14,8 @@
 	import { AppShell, AppBar } from '@skeletonlabs/skeleton';
 	import manual from '$lib/assets/manual.pdf'
 
-	import ArquivoLer from '$lib/ArquivoLer.svelte';
-	import ArquivoGerar from '$lib/ArquivoGerar.svelte';	
+	import ArquivoLer from '$lib/arq/ArquivoLer.svelte';
+	import ArquivoGerar from '$lib/arq/ArquivoGerar.svelte';	
 	import Parametrizacao from '$lib/Parametrizacao.svelte';	
 	
 

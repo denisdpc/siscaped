@@ -1,6 +1,6 @@
 <script>
     import { dificuldadeObtencao, disponibilidadeLogistica, disponibilidadeProdutiva } from '$lib/shared/stores.js';
-    import DificuldadeObtencao from '$lib/prodeDificuldadeObtencaoNivel.svelte';
+    import DificuldadeObtencao from '$lib/calculados/prodeDificuldadeObtencaoNivel.svelte';
     const matriz = [[1,2,3],[0,2,3],[0,0,1]];
     
     $: {

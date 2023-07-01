@@ -1,9 +1,9 @@
 <script>
-    import ProdeConteudoTecnologico from "$lib/prodeConteudoTecnologico.svelte";
-	import ProdeDificuldadeObtencao from "$lib/prodeDificuldadeObtencao.svelte";    
-	import ProdeImprescindibilidade from "$lib/prodeImprescindibilidade.svelte";
-    import ProdeFomentoOperacional from "$lib/prodeFomentoOperacional.svelte";	
-	import ProdeCategorizacao from "$lib/prodeCategorizacao.svelte";
+    import ProdeConteudoTecnologico from "$lib/calculados/prodeConteudoTecnologico.svelte";
+	import ProdeDificuldadeObtencao from "$lib/calculados/prodeDificuldadeObtencao.svelte";    
+	import ProdeImprescindibilidade from "$lib/calculados/prodeImprescindibilidade.svelte";
+    import ProdeFomentoOperacional from "$lib/calculados/prodeFomentoOperacional.svelte";	
+	import ProdeCategorizacao from "$lib/calculados/prodeCategorizacao.svelte";
     import ParametroFormat from "$lib/ParametroFormat.svelte";  
 
     import { maturidadeTecnologica, 

@@ -1,6 +1,6 @@
 <script>
     import { categorizacao, fomentoOperacional, dificuldadeObtencao } from '$lib/shared/stores.js';
-    import Categorizacao from '$lib/prodeCategorizacaoNivel.svelte';
+    import Categorizacao from '$lib/calculados/prodeCategorizacaoNivel.svelte';
     const matriz = [[3,2,1,0],[3,3,2,1],[2,2,1,1],[1,1,1,0]]    
     $: {
         if ($dificuldadeObtencao > -1 && $fomentoOperacional > -1) {

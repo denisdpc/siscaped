@@ -12,7 +12,10 @@
              necessidadeTatica,
              imprescindibilidade,
              fomentoOperacional,
-             categorizacao
+             categorizacao,
+             justificativaConteudoTecnologico,
+             justificativaDificuldadeObtencao,
+             justificativaImprescindibilidade
             } from "$lib/shared/stores";
 
     let files: FileList;
@@ -25,15 +28,22 @@
         $maturidadeTecnologica = jsonData['maturidadeTecnologica']
         $cicloTecnologico = jsonData['cicloTecnologico']
         $dominioTecnologico = jsonData['dominioTecnologico']
-        $conteudoTecnologico = jsonData['conteudoTecnologico']
         $disponibilidadeLogistica = jsonData['disponibilidadeLogistica']
         $disponibilidadeProdutiva = jsonData['disponibilidadeProdutiva']
-        $dificuldadeObtencao = jsonData['dificuldadeObtencao']
         $necessidadeEstrategica = jsonData['necessidadeEstrategica']
         $necessidadeTatica = jsonData['necessidadeTatica']
-        $imprescindibilidade = jsonData['imprescindibilidade']
-        $fomentoOperacional = jsonData['fomentoOperacional']
-        $categorizacao = jsonData['categorizacao']             
+        
+        const calculados = jsonData['calculados'];
+        $conteudoTecnologico = calculados['conteudoTecnologico'];
+        $dificuldadeObtencao = calculados['dificuldadeObtencao'];
+        $imprescindibilidade = calculados['imprescindibilidade'];
+        $fomentoOperacional = calculados['fomentoOperacional'];
+        $categorizacao = calculados['categorizacao'];
+        
+        const justificaticas = jsonData['justificativas'];        
+        $justificativaConteudoTecnologico = justificaticas['conteudoTecnologico'];
+        $justificativaDificuldadeObtencao = justificaticas['dificuldadeObtencao'];
+        $justificativaImprescindibilidade = justificaticas['imprescindibilidade'];
     }
 </script>
 

@@ -1,7 +1,7 @@
 <script lang="ts">
     import { createEventDispatcher } from 'svelte';
     import { Modal, modalStore } from '@skeletonlabs/skeleton';
-    import type { ModalSettings, ModalComponent } from '@skeletonlabs/skeleton';
+    import type { ModalSettings } from '@skeletonlabs/skeleton';
 
     const dispatch = createEventDispatcher();
 
@@ -16,22 +16,32 @@
              necessidadeTatica,
              imprescindibilidade,
              fomentoOperacional,
-             categorizacao
+             categorizacao,
+             justificativaConteudoTecnologico,
+             justificativaDificuldadeObtencao,
+             justificativaImprescindibilidade
             } from "$lib/shared/stores";
 
     const jsonData = {
         maturidadeTecnologica: $maturidadeTecnologica,
         cicloTecnologico: $cicloTecnologico,
         dominioTecnologico: $dominioTecnologico,
-        conteudoTecnologico: $conteudoTecnologico,
         disponibilidadeLogistica: $disponibilidadeLogistica,
         disponibilidadeProdutiva: $disponibilidadeProdutiva,
-        dificuldadeObtencao: $dificuldadeObtencao,
         necessidadeEstrategica: $necessidadeEstrategica,
         necessidadeTatica: $necessidadeTatica,
-        imprescindibilidade: $imprescindibilidade,
-        fomentoOperacional: $fomentoOperacional,
-        categorizacao: $categorizacao
+        calculados: {
+            'conteudoTecnologico': $conteudoTecnologico,
+            'dificuldadeObtencao': $dificuldadeObtencao,
+            'imprescindibilidade': $imprescindibilidade,
+            'fomentoOperacional': $fomentoOperacional,
+            'categorizacao': $categorizacao
+        },
+        justificativas: {
+            'conteudoTecnologico' : $justificativaConteudoTecnologico,
+            'dificuldadeObtencao': $justificativaDificuldadeObtencao,
+            'imprescindibilidade': $justificativaImprescindibilidade
+        }
     };
         
     new Promise<boolean>((resolve) => {
@@ -47,7 +57,7 @@
     }).then((r: any) => {
         console.log('resolved response:', r);
         if (r) {
-            const content = JSON.stringify(jsonData);
+            const content = JSON.stringify(jsonData);            
             const a = document.createElement("a");
             const file = new Blob([content], {type: "text/plain"});
             a.href = URL.createObjectURL(file);

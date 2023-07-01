@@ -4,15 +4,15 @@
 	import MaturidadeTecnologica from "$lib/MaturidadeTecnologica.svelte";    
     import DominioTecnologico from "$lib/DominioTecnologico.svelte";
     import CicloTecnologico from "$lib/CicloTecnologico.svelte";
-	import JustificativaConteudoTecnologico from '$lib/JustificativaConteudoTecnologico.svelte';
+	import JustificativaConteudoTecnologico from '$lib/justificativas/JustificativaConteudoTecnologico.svelte';
 
 	import DisponibilidadeLogistica from "$lib/DisponibilidadeLogistica.svelte";
     import DisponibilidadeProdutiva from "$lib/DisponibilidadeProdutiva.svelte";
-	import JustificativaDificuldadeObtencao from '$lib/JustificativaDificuldadeObtencao.svelte';
+	import JustificativaDificuldadeObtencao from '$lib/justificativas/JustificativaDificuldadeObtencao.svelte';
 
     import NecessidadeEstrategica from "$lib/NecessidadeEstrategica.svelte";
     import NecessidadeTatica from "$lib/NecessidadeTatica.svelte";
-	import Justificativaimprescindibilidade from '$lib/Justificativaimprescindibilidade.svelte';
+	import Justificativaimprescindibilidade from '$lib/justificativas/Justificativaimprescindibilidade.svelte';
 </script>
 
 <Accordion autocollapse>
