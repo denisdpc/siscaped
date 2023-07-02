@@ -46,7 +46,8 @@
 				<button on:click={salvar} type="button" class="btn variant-filled">gerar arquivo</button>
 				{#if janelaSalvarAberta}
 					<ArquivoGerar on:message={handleMessage} />					
-				{/if}				
+				{/if}		
+				<a href="/relatorio">relatorio</a>
 				<a href="{manual}" target="_blank">manual</a>
 				<a href="/sobre">sobre</a>				
 			</svelte:fragment>			
