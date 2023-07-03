@@ -1,5 +1,5 @@
 <script>
-    import { empresa, produto, analista, organizacaoMilitar } from '$lib/shared/stores';
+    import { empresa, produto, assessor, orgaoDirecaoSetorial, organizacaoMilitar, data } from '$lib/shared/stores';
 </script>
 
 <h3>
@@ -12,14 +12,24 @@
            type="text" 
            placeholder="Produto" 
            bind:value = { $produto }/>
+<br><br>
+<input class="input" 
+       type="text" 
+       placeholder="Órgão de Direção Setorial (OSD)" 
+       bind:value = { $orgaoDirecaoSetorial }/>
     <br><br>
     <input class="input" 
             type="text" 
-            placeholder="Organização Militar" 
+            placeholder="Organização Militar (OM)" 
             bind:value = { $organizacaoMilitar }/>
     <br><br>
     <input class="input" 
            type="text" 
-           placeholder="Analista" 
-           bind:value = { $analista }/>
+           placeholder="Assessor" 
+           bind:value = { $assessor }/>
+    <br><br>
+    <input class="input" 
+           type="text" 
+           placeholder="Data" 
+           bind:value = { $data }/>
 </h3>

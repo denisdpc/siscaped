@@ -1,7 +1,10 @@
 <script lang="ts">
     import { FileButton } from '@skeletonlabs/skeleton';
 
-    import { empresa, produto, organizacaoMilitar, analista,
+    import { empresa, produto, 
+             orgaoDirecaoSetorial, organizacaoMilitar, 
+             assessor,
+             objetivo,
              maturidadeTecnologica, 
              cicloTecnologico, 
              dominioTecnologico,
@@ -28,8 +31,11 @@
         
         $empresa = jsonData['empresa']
         $produto = jsonData['produto']
+        $orgaoDirecaoSetorial = jsonData['orgaoDirecaoSetorial']
         $organizacaoMilitar = jsonData['organizacaoMilitar']
-        $analista = jsonData['analista']        
+        $assessor = jsonData['assessor']       
+        
+        $objetivo = jsonData['objetivo']
 
         $maturidadeTecnologica = jsonData['maturidadeTecnologica']
         $cicloTecnologico = jsonData['cicloTecnologico']

@@ -1,9 +1,13 @@
 import { writable } from 'svelte/store';
 
+export const objetivo = writable('Este parecer técnico tem por finalidade assessorar o EMAER (4SC3) no processo de classificação de produtos (bem, informação, obra, serviço e/ou projeto) como Produto de Defesa (PRODE) ou Produto Estratégico de Defesa (PED), especificando sua utilização na Defesa Nacional de acordo com as métricas previstas na Portaria Normativa nº 86/GM-MD, de 13 de dezembro de 2018.');
+
 export const empresa = writable('');
 export const produto = writable('');
+export const orgaoDirecaoSetorial = writable('');
 export const organizacaoMilitar = writable('');
-export const analista = writable('');
+export const assessor = writable('');
+export const data = writable('');
 
 export const maturidadeTecnologica = writable(0);
 

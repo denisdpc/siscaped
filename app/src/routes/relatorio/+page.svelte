@@ -33,7 +33,7 @@ https://github.com/simonbengtsson/jsPDF-AutoTable/blob/master/examples/typescrip
                 [5, 'Switzerland', 7.487, 'Bern'],
                 [9, 'Sweden', 7.314, 'Stockholm'],
                 [73, 'Belarus', 5.483, 'Minsk'],
-                [{ content: 'Text', colSpan: 2, rowSpan: 2, styles: { halign: 'center' } }],                
+                [{ content: 'Text', colSpan: 2, rowSpan: 2, styles: { fillColor: 'black',  halign: 'center' } }],                
             ],
         })
 

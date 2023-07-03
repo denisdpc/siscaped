@@ -5,7 +5,9 @@
 
     const dispatch = createEventDispatcher();
 
-    import { empresa, produto, organizacaoMilitar, analista, 
+    import { empresa, produto, 
+             orgaoDirecaoSetorial, organizacaoMilitar, 
+             assessor, objetivo,             
              maturidadeTecnologica, 
              cicloTecnologico, 
              dominioTecnologico,
@@ -26,8 +28,10 @@
     const jsonData = {
         'empresa': $empresa, 
         'produto': $produto, 
+        'orgaoDirecaoSetorial': $orgaoDirecaoSetorial,
         'organizacaoMilitar': $organizacaoMilitar,
-        'analista': $analista,         
+        'assessor': $assessor,  
+        'objetivo': $objetivo,       
         'maturidadeTecnologica': $maturidadeTecnologica,
         'cicloTecnologico': $cicloTecnologico,
         'dominioTecnologico': $dominioTecnologico,
