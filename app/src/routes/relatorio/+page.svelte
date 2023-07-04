@@ -5,57 +5,75 @@ https://github.com/simonbengtsson/jsPDF-AutoTable/blob/master/examples/typescrip
     import { jsPDF } from 'jspdf'
     import autoTable from 'jspdf-autotable'
 
+    import { empresa, produto, data,
+             orgaoDirecaoSetorial, organizacaoMilitar, 
+             assessor,
+             objetivo,
+             aplicacaoFAB,
+             aplicacaoAtividadeFinalistica,
+             maturidadeTecnologica, 
+             cicloTecnologico, 
+             dominioTecnologico,
+             conteudoTecnologico,
+             disponibilidadeLogistica,
+             disponibilidadeProdutiva,
+             dificuldadeObtencao,
+             necessidadeEstrategica,
+             necessidadeTatica,
+             imprescindibilidade,
+             fomentoOperacional,
+             categorizacao,
+             justificativaConteudoTecnologico,
+             justificativaDificuldadeObtencao,
+             justificativaImprescindibilidade
+            } from "$lib/shared/stores";
+
     function gerarPDF() {
-        const doc = new jsPDF()
-        doc.text("hello word",12,12)
+        const doc = new jsPDF()        
         autoTable(doc, {
-            theme: 'grid',
-            head: [['ID', 'Country', 'Index', 'Capital']],
+            theme: 'grid',            
             body: [
-                [1, 'Finland', 7.632, 'Helsinki'],
-                [2, 'Norway', 7.594, 'Oslo'],
-                [3, 'Denmark', 7.555, 'Copenhagen'],
-                [4, 'Iceland', 7.495, 'Reykjavík'],
-                [5, 'Switzerland', 7.487, 'Bern'],
-                [9, 'Sweden', 7.314, 'Stockholm'],
-                [73, 'Belarus', 5.483, 'Minsk'],
-                [{ content: 'Text', colSpan: 2, rowSpan: 2, styles: { halign: 'center' } }],                
+                [{ colSpan: 4, content: '1. EMISSOR', styles: { fillColor: 'gainsboro', fontStyle: 'bold'}}],                
+                [ 'ODS: '+ $orgaoDirecaoSetorial , 'OM: ' + $organizacaoMilitar, 'Assessor Técnico: ' + $assessor, 'Data: ' + $data],
+                [{ colSpan: 4, content: '2. OBJETIVO', styles: { fillColor: 'gainsboro', fontStyle: 'bold'}}],
+                [{ colSpan: 4, content: $objetivo}],
+                [{ colSpan: 4, content: '3. EMPRESA', styles: { fillColor: 'gainsboro', fontStyle: 'bold'}}],
+                [{ colSpan: 4, content: $empresa}],
+                [{ colSpan: 4, content: '4. PRODUTO', styles: { fillColor: 'gainsboro', fontStyle: 'bold'}}],
+                [{ colSpan: 4, content: $produto}],
+                [{ colSpan: 4, content: '5. APLICAÇÃO NA ATIVIDADE FINALÍSTICA DE DEFESA',  styles: { fillColor: 'gainsboro', fontStyle: 'bold'}}],
+                [{ colSpan: 4, content: $aplicacaoAtividadeFinalistica}],
+                [{ colSpan: 4, content: '6. POSSIBILIDADE DE APLICAÇÃO NA FAB', styles: { fillColor: 'gainsboro', fontStyle: 'bold'}}],
+                [{ colSpan: 4, content: $aplicacaoFAB}],
+                [{ colSpan: 4, content: '7. CLASSIFICAÇÃO E CATEGORIZAÇÃO DE PRODE/PED (Ref. Manual de Métricas)', styles: { fillColor: 'gainsboro', fontStyle: 'bold'}}],
+                [{ colSpan: 4, content: '7.1 CONTEÚDO TECNOLÓGICO',  styles: { fillColor: 'lightcyan'}}],
+                [{ colSpan: 4, content: 'a) TRL (nível de maturidade tecnológica): ' + $maturidadeTecnologica}],
+                [{ colSpan: 4, content: 'b) domínio tecnológico: ' + $dominioTecnologico}],
+                [{ colSpan: 4, content: 'c) ciclo tecnológico: '+ $cicloTecnologico}],
+                [{ colSpan: 4, content: 'd) inovação: ---'}],   // TODO: verificar se é projeto
+                [{ colSpan: 4, content: 'Grau da tabela: ' + $conteudoTecnologico}], // TODO: inserir --- se for -1
+                [{ colSpan: 4, content: 'Justificativa: ' + $justificativaConteudoTecnologico}],
+                [{ colSpan: 4, content: '7.2 DIFICULDADE DE OBTENÇÃO', styles: { fillColor: 'lightcyan'}}],
+                [{ colSpan: 4, content: 'a) disponibilidade logística: ' + $disponibilidadeLogistica}],
+                [{ colSpan: 4, content: 'b) disponibilidade produtiva: ' + $disponibilidadeProdutiva}],
+                [{ colSpan: 4, content: 'Grau da tabela: ' + $dificuldadeObtencao }],   // TODO: inserir --- se for -1
+                [{ colSpan: 4, content: 'Justificativa: ' +  $justificativaDificuldadeObtencao }],
+                [{ colSpan: 4, content: '7.3 IMPRESCINDIBILIDADE', styles: { fillColor: 'lightcyan'}}],
+                [{ colSpan: 4, content: 'a) necessidade estratégica: ' + $necessidadeEstrategica}],
+                [{ colSpan: 4, content: 'b) necessidade tática: ' + $necessidadeTatica}],
+                [{ colSpan: 4, content: 'Grau da tabela: '+ $imprescindibilidade}], // TODO: inserir --- se for -1
+                [{ colSpan: 4, content: 'Justificativa: '+$justificativaImprescindibilidade}],
+                [{ colSpan: 4, content: '7.4 CATEGORIZAÇÃO', styles: { fillColor: 'lightcyan'}}],
+                [{ colSpan: 4, content: 'a) fomento operacional (conteúdo tecnológico X imprescindibilidade): '+ $fomentoOperacional}],
+                [{ colSpan: 4, content: 'b) categorização (dificuldade de obtenção X fomento operacional): '+ $categorizacao}], // TODO: texto categorização
+                [{ colSpan: 4, content: '8. CONCLUSÃO', styles: { fillColor: 'gainsboro', fontStyle: 'bold'}}],
+                [{ colSpan: 4, content: 'Pneu, astronauta, violino. Na imensidão cósmica, um astronauta solitário dedilha notas de violino, enquanto um pneu flutua ao redor, desafiando a gravidade.'}],
+                [{ colSpan: 4, content: '9. FOTO(S) DO PRODUTO', styles: { fillColor: 'gainsboro', fontStyle: 'bold'}}],                
+                [{ colSpan: 4, content: 'Pneu, astronauta, violino. Na imensidão cósmica, um astronauta solitário dedilha notas de violino, enquanto um pneu flutua ao redor, desafiando a gravidade.'}],
             ],
         })
-        autoTable(doc, {
-            theme: 'grid',
-            head: [['ID', 'Country', 'Index', 'Capital']],
-            body: [
-                [1, 'Finland', 7.632, 'Helsinki'],
-                [2, 'Norway', 7.594, 'Oslo'],
-                [3, 'Denmark', 7.555, 'Copenhagen'],
-                [4, 'Iceland', 7.495, 'Reykjavík'],
-                [5, 'Switzerland', 7.487, 'Bern'],
-                [9, 'Sweden', 7.314, 'Stockholm'],
-                [73, 'Belarus', 5.483, 'Minsk'],
-                [{ content: 'Text', colSpan: 2, rowSpan: 2, styles: { fillColor: 'black',  halign: 'center' } }],                
-            ],
-        })
-
         const tabelaElemento = document.getElementById('tabela')
-        //doc.fromHTML(tabelaElemento);
-
         doc.save('table.pdf')
-    }
-
-    function HTMLtoPDF() {          
-        let doc = new jsPDF('l', 'mm', [1500, 1400]);
-        //let pdfjs = document.querySelector('#tabela');
-        let pdfjs = document.getElementById('tabela')
-        console.log(pdfjs)
-
-        doc.html(pdfjs, {
-            callback: function(doc) {
-                doc.save("newpdf.pdf");
-            },
-            x: 12,
-            y: 12
-        });         
     }
     
 </script>
@@ -64,13 +82,7 @@ relatorio
 <br>
 <button on:click={ gerarPDF } 
         type="button" 
-        class="btn variant-filled">Gerar PDF</button>
-
-<button on:click={ HTMLtoPDF } 
-        type="button" 
-        class="btn variant-filled">HTML to PDF</button>
-
-    
+        class="btn variant-filled">Gerar PDF</button>    
 <br>
 <br>
 <table id='tabela'>

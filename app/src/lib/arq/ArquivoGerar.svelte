@@ -5,7 +5,7 @@
 
     const dispatch = createEventDispatcher();
 
-    import { empresa, produto, 
+    import { empresa, produto, data, 
              orgaoDirecaoSetorial, organizacaoMilitar, 
              assessor, objetivo,             
              aplicacaoFAB, aplicacaoAtividadeFinalistica,
@@ -32,6 +32,7 @@
         'orgaoDirecaoSetorial': $orgaoDirecaoSetorial,
         'organizacaoMilitar': $organizacaoMilitar,
         'assessor': $assessor,  
+        'data': $data,
         'objetivo': $objetivo,                  
         'maturidadeTecnologica': $maturidadeTecnologica,
         'cicloTecnologico': $cicloTecnologico,
