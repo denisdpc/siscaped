@@ -8,6 +8,7 @@
     import { empresa, produto, 
              orgaoDirecaoSetorial, organizacaoMilitar, 
              assessor, objetivo,             
+             aplicacaoFAB, aplicacaoAtividadeFinalistica,
              maturidadeTecnologica, 
              cicloTecnologico, 
              dominioTecnologico,
@@ -31,7 +32,7 @@
         'orgaoDirecaoSetorial': $orgaoDirecaoSetorial,
         'organizacaoMilitar': $organizacaoMilitar,
         'assessor': $assessor,  
-        'objetivo': $objetivo,       
+        'objetivo': $objetivo,                  
         'maturidadeTecnologica': $maturidadeTecnologica,
         'cicloTecnologico': $cicloTecnologico,
         'dominioTecnologico': $dominioTecnologico,
@@ -47,9 +48,11 @@
             'categorizacao': $categorizacao
         },
         justificativas: {
+            'aplicacaoAtividadeFinalistica': $aplicacaoAtividadeFinalistica,
+            'aplicacaoFAB': $aplicacaoFAB,            
             'conteudoTecnologico' : $justificativaConteudoTecnologico,
             'dificuldadeObtencao': $justificativaDificuldadeObtencao,
-            'imprescindibilidade': $justificativaImprescindibilidade
+            'imprescindibilidade': $justificativaImprescindibilidade,
         }
     };
         

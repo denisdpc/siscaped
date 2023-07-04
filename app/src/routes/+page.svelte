@@ -1,8 +1,11 @@
 <script>
 	import { Accordion, AccordionItem } from '@skeletonlabs/skeleton';
 
-	import Objetivo from '$lib/Objetivo.svelte';
 	import Identificacao from '$lib/Identificacao.svelte';
+	import Objetivo from '$lib/Objetivo.svelte';
+	import AplicacaoFAB from '$lib/justificativas/AplicacaoFAB.svelte';
+	import AplicacaoAtividadeFinalistica from '$lib/justificativas/AplicacaoAtividadeFinalistica.svelte';
+	
 
 	import MaturidadeTecnologica from "$lib/MaturidadeTecnologica.svelte";    
     import DominioTecnologico from "$lib/DominioTecnologico.svelte";
@@ -15,7 +18,7 @@
 
     import NecessidadeEstrategica from "$lib/NecessidadeEstrategica.svelte";
     import NecessidadeTatica from "$lib/NecessidadeTatica.svelte";
-	import Justificativaimprescindibilidade from '$lib/justificativas/Justificativaimprescindibilidade.svelte';
+	import Justificativaimprescindibilidade from '$lib/justificativas/Justificativaimprescindibilidade.svelte';	
 </script>
 
 <Accordion autocollapse>
@@ -27,7 +30,15 @@
 	<AccordionItem>
 		<svelte:fragment slot="summary"><h3 class="h3 bg-black">Objetivo</h3></svelte:fragment>
 		<svelte:fragment slot="content"><Objetivo /></svelte:fragment>
-	</AccordionItem>	
+	</AccordionItem>
+	<AccordionItem>
+		<svelte:fragment slot="summary"><h3 class="h3 bg-black">Aplicação na FAB</h3></svelte:fragment>
+		<svelte:fragment slot="content"><AplicacaoFAB /></svelte:fragment>
+	</AccordionItem>
+	<AccordionItem>
+		<svelte:fragment slot="summary"><h3 class="h3 bg-black">Aplicação na atividade finalística de defesa</h3></svelte:fragment>
+		<svelte:fragment slot="content"><AplicacaoAtividadeFinalistica /></svelte:fragment>
+	</AccordionItem>
 	<AccordionItem>
 		<svelte:fragment slot="summary"><h3 class="h3 bg-black">Maturidade Tecnológica</h3></svelte:fragment>
 		<svelte:fragment slot="content"><MaturidadeTecnologica /></svelte:fragment>

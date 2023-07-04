@@ -5,6 +5,8 @@
              orgaoDirecaoSetorial, organizacaoMilitar, 
              assessor,
              objetivo,
+             aplicacaoFAB,
+             aplicacaoAtividadeFinalistica,
              maturidadeTecnologica, 
              cicloTecnologico, 
              dominioTecnologico,
@@ -53,9 +55,12 @@
         $categorizacao = calculados['categorizacao'];
         
         const justificaticas = jsonData['justificativas'];        
+        $aplicacaoAtividadeFinalistica = justificaticas['aplicacaoAtividadeFinalistica'];
+        $aplicacaoFAB = justificaticas['aplicacaoFAB'];        
         $justificativaConteudoTecnologico = justificaticas['conteudoTecnologico'];
         $justificativaDificuldadeObtencao = justificaticas['dificuldadeObtencao'];
         $justificativaImprescindibilidade = justificaticas['imprescindibilidade'];
+
     }
 </script>
 
