@@ -30,3 +30,5 @@ export const justificativaImprescindibilidade = writable('');
 
 export const fomentoOperacional = writable(-1);
 export const categorizacao = writable(-1);
+
+export const arqFotos = writable();

@@ -19,6 +19,8 @@
     import NecessidadeEstrategica from "$lib/NecessidadeEstrategica.svelte";
     import NecessidadeTatica from "$lib/NecessidadeTatica.svelte";
 	import Justificativaimprescindibilidade from '$lib/justificativas/Justificativaimprescindibilidade.svelte';	
+
+	import ArquivoFotos from '$lib/arq/ArquivoFotos.svelte';
 </script>
 
 <Accordion autocollapse>
@@ -80,5 +82,9 @@
 	<AccordionItem>		
 		<svelte:fragment slot="summary"><h3 class="h3 bg-black">Imprescindibilidade</h3></svelte:fragment>
 		<svelte:fragment slot="content"><Justificativaimprescindibilidade /></svelte:fragment>
+	</AccordionItem>
+	<AccordionItem>		
+		<svelte:fragment slot="summary"><h3 class="h3 bg-black">Fotos</h3></svelte:fragment>
+		<svelte:fragment slot="content"><ArquivoFotos /></svelte:fragment>
 	</AccordionItem>
 </Accordion>

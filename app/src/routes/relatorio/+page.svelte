@@ -1,5 +1,8 @@
-<!-- https://github.com/simonbengtsson/jsPDF-AutoTable
-https://github.com/simonbengtsson/jsPDF-AutoTable/blob/master/examples/typescript/index.ts -->
+<!-- 
+https://github.com/simonbengtsson/jsPDF-AutoTable
+https://github.com/simonbengtsson/jsPDF-AutoTable/blob/master/examples/typescript/index.ts 
+https://codepen.io/someatoms/pen/vLYXWB?editors=1010
+-->
 
 <script>
     import { jsPDF } from 'jspdf'
@@ -7,7 +10,7 @@ https://github.com/simonbengtsson/jsPDF-AutoTable/blob/master/examples/typescrip
 
     import { empresa, produto, data,
              orgaoDirecaoSetorial, organizacaoMilitar, 
-             assessor,
+             assessor, arqFotos,
              objetivo,
              aplicacaoFAB,
              aplicacaoAtividadeFinalistica,
@@ -27,8 +30,20 @@ https://github.com/simonbengtsson/jsPDF-AutoTable/blob/master/examples/typescrip
              justificativaDificuldadeObtencao,
              justificativaImprescindibilidade
             } from "$lib/shared/stores";
+    
+    function obterConclusao() {
+        let conclusao = 'Diante do exposto, o produto ' + $produto + ', objeto desta análise, '
+        if ($categorizacao > 0)   {
+            conclusao += 'poder ser classificado como PED de ' + (4 - $categorizacao).toString() +'ª categoria.';
+        } else {
+            conclusao += 'não pode ser classificado como PED.'
+        }
+        return conclusao;
+    }
 
     function gerarPDF() {
+        
+
         const doc = new jsPDF()        
         autoTable(doc, {
             theme: 'grid',            
@@ -67,15 +82,64 @@ https://github.com/simonbengtsson/jsPDF-AutoTable/blob/master/examples/typescrip
                 [{ colSpan: 4, content: 'a) fomento operacional (conteúdo tecnológico X imprescindibilidade): '+ $fomentoOperacional}],
                 [{ colSpan: 4, content: 'b) categorização (dificuldade de obtenção X fomento operacional): '+ $categorizacao}], // TODO: texto categorização
                 [{ colSpan: 4, content: '8. CONCLUSÃO', styles: { fillColor: 'gainsboro', fontStyle: 'bold'}}],
-                [{ colSpan: 4, content: 'Pneu, astronauta, violino. Na imensidão cósmica, um astronauta solitário dedilha notas de violino, enquanto um pneu flutua ao redor, desafiando a gravidade.'}],
-                [{ colSpan: 4, content: '9. FOTO(S) DO PRODUTO', styles: { fillColor: 'gainsboro', fontStyle: 'bold'}}],                
-                [{ colSpan: 4, content: 'Pneu, astronauta, violino. Na imensidão cósmica, um astronauta solitário dedilha notas de violino, enquanto um pneu flutua ao redor, desafiando a gravidade.'}],
+                [{ colSpan: 4, content: obterConclusao()}],
+                [{ colSpan: 4, content: '9. FOTO(S) DO PRODUTO', styles: { fillColor: 'gainsboro', fontStyle: 'bold'}}],                                
             ],
         })
-        const tabelaElemento = document.getElementById('tabela')
+
+
+        let arq = $arqFotos[0];
+        let reader = new FileReader();
+        reader.readAsDataURL(arq);
+        let img = document.getElementById("image-preview");
+
+        reader.onload = function() {            
+            img.src = reader.result;            
+        }
+
+        var canvas = document.createElement("canvas");
+        canvas.width = img.width;
+        canvas.height = img.height;
+        var ctx = canvas.getContext("2d");
+        ctx.drawImage(img, 0, 0);
+        var imgData = canvas.toDataURL("image/jpeg");
+
+
+        doc.addImage(imgData,"JPEG", 14, doc.lastAutoTable.finalY+3,60,60)
+
         doc.save('table.pdf')
     }
     
+    function gerarRelatorio() {
+        const doc = new jsPDF()        
+
+        let arq = $arqFotos[0];
+        let reader = new FileReader();
+        reader.readAsDataURL(arq);
+        let img = document.getElementById("image-preview");
+
+        reader.onload = function() {            
+            img.src = reader.result;            
+        }
+
+        doc.autoTable({
+            html: '#tabela', // id of the HTML table element
+            bodyStyles: {minCellHeight: 15}, // set minimum cell height
+            didDrawCell: function (data) { // hook to insert image
+                if (data.column.index === 5 && data.cell.section === 'body') { // check if column index is 5 and section is body
+                var td = data.cell.raw; // get original cell data
+                //var img = td.getElementsByTagName('img')[0]; // get image element from HTML data
+                var dim = data.cell.height - data.cell.padding('vertical'); // calculate image dimension
+                var textPos = data.cell.textPos; // get default text position
+                //doc.addImage(img.src, 'JPEG', textPos.x, textPos.y, dim, dim); // add image to PDF document
+                }
+            }
+        });
+    
+        doc.save('relatorio.pdf')
+
+    }
+
 </script>
 
 relatorio
@@ -83,6 +147,9 @@ relatorio
 <button on:click={ gerarPDF } 
         type="button" 
         class="btn variant-filled">Gerar PDF</button>    
+<button on:click={ gerarRelatorio } 
+        type="button" 
+        class="btn variant-filled">Gerar RELATORIO</button>    
 <br>
 <br>
 <table id='tabela'>
@@ -96,6 +163,12 @@ relatorio
         <tr><td>Maturidade Tecnológica</td><td>6</td></tr>
     </tbody>    
 </table>
+
+<img id="image-preview" 
+     src="https://via.placeholder.com/400"
+     style="width:400px"
+     class="rounded rounded-circle" alt="placeholder">
+
 
 <div id='estilo'>
     <style>
