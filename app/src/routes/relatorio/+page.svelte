@@ -42,9 +42,8 @@ https://codepen.io/someatoms/pen/vLYXWB?editors=1010
     }
 
     function gerarPDF() {
-        
-
-        const doc = new jsPDF()        
+        const doc = new jsPDF()  
+        //const doc = new jsPDF("l", "mm", "a4");      
         autoTable(doc, {
             theme: 'grid',            
             body: [
@@ -87,25 +86,46 @@ https://codepen.io/someatoms/pen/vLYXWB?editors=1010
             ],
         })
 
+        window.scrollTo(0,0)
 
         let arq = $arqFotos[0];
         let reader = new FileReader();
         reader.readAsDataURL(arq);
         let img = document.getElementById("image-preview");
 
-        reader.onload = function() {            
-            img.src = reader.result;            
+        reader.onload = function() {                
+            img.src = reader.result;
+            console.log("Image size:", img.naturalWidth, "x", img.naturalHeight);            
         }
 
-        var canvas = document.createElement("canvas");
-        canvas.width = img.width;
-        canvas.height = img.height;
-        var ctx = canvas.getContext("2d");
-        ctx.drawImage(img, 0, 0);
-        var imgData = canvas.toDataURL("image/jpeg");
+        let canvas = document.createElement("canvas");
+        // canvas.width = img.width+460;
+        // canvas.height = img.height+306;
+        canvas.width = img.naturalWidth;
+        canvas.height = img.naturalHeight;
+        
+        console.log('CANVAS: Y (' + canvas.height + ') - X ('+ canvas.width + ')')
+        let ctx = canvas.getContext("2d");
+        ctx.drawImage(img, 0, 0);        
+        const imgData = canvas.toDataURL("image/jpeg");
+
+        const pageWidth = doc.internal.pageSize.getWidth();
+        const pageHeight = doc.internal.pageSize.getHeight();
+
+        //doc.addImage(imgData,"JPEG", 14, doc.lastAutoTable.finalY+3,60,60,'imagem','MEDIUM')
+        //doc.addImage(imgData,"JPEG", 14, doc.lastAutoTable.finalY+3)
+        //doc.addImage(imgData,"JPEG", 14, doc.lastAutoTable.finalY+3,96,64)
+        const x = 182;
+        const y = Math.trunc(x*64/96);
+        doc.addImage(imgData,"JPEG", 14, doc.lastAutoTable.finalY+3,x,y)
 
 
-        doc.addImage(imgData,"JPEG", 14, doc.lastAutoTable.finalY+3,60,60)
+        doc.addImage(imgData,"JPEG", 14, doc.lastAutoTable.finalY+3+y,x,y)
+        
+        // adicionar página
+        doc.addPage()
+        doc.addImage(imgData,"JPEG", 14, 10,x,y)
+        
 
         doc.save('table.pdf')
     }
@@ -164,11 +184,11 @@ relatorio
     </tbody>    
 </table>
 
-<img id="image-preview" 
+<!-- <img id="image-preview" 
      src="https://via.placeholder.com/400"
      style="width:400px"
-     class="rounded rounded-circle" alt="placeholder">
-
+     class="rounded rounded-circle" alt="placeholder"> -->
+     <img id="image-preview">
 
 <div id='estilo'>
     <style>

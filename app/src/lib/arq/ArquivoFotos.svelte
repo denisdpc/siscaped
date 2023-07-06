@@ -18,6 +18,7 @@
         reader.onload = function() {
             let img = document.getElementById("image-preview");
             img.src = reader.result;
+            //console.log("Image size:", img.naturalWidth, "x", img.naturalHeight);
         }
 
         // for (let i=0; i<conteudo.length; i++) {
@@ -35,7 +36,4 @@
 
 <br>
 <br>
-<img id="image-preview" 
-     src="https://via.placeholder.com/400"
-     style="width:400px"
-     class="rounded rounded-circle" alt="placeholder">
+<img id="image-preview">
