@@ -98,33 +98,51 @@ https://codepen.io/someatoms/pen/vLYXWB?editors=1010
             console.log("Image size:", img.naturalWidth, "x", img.naturalHeight);            
         }
 
+        const Xfig = img.naturalWidth;
+        const Yfig = img.naturalHeight;
+
         let canvas = document.createElement("canvas");
         // canvas.width = img.width+460;
         // canvas.height = img.height+306;
-        canvas.width = img.naturalWidth;
-        canvas.height = img.naturalHeight;
+        canvas.width = Xfig;
+        canvas.height = Yfig;
         
-        console.log('CANVAS: Y (' + canvas.height + ') - X ('+ canvas.width + ')')
+        //console.log('CANVAS: Y (' + canvas.height + ') - X ('+ canvas.width + ')')
         let ctx = canvas.getContext("2d");
         ctx.drawImage(img, 0, 0);        
         const imgData = canvas.toDataURL("image/jpeg");
 
-        const pageWidth = doc.internal.pageSize.getWidth();
-        const pageHeight = doc.internal.pageSize.getHeight();
-
+        //const pageWidth = doc.internal.pageSize.getWidth();
+        //const pageHeight = doc.internal.pageSize.getHeight();
+        
         //doc.addImage(imgData,"JPEG", 14, doc.lastAutoTable.finalY+3,60,60,'imagem','MEDIUM')
         //doc.addImage(imgData,"JPEG", 14, doc.lastAutoTable.finalY+3)
         //doc.addImage(imgData,"JPEG", 14, doc.lastAutoTable.finalY+3,96,64)
-        const x = 182;
-        const y = Math.trunc(x*64/96);
-        doc.addImage(imgData,"JPEG", 14, doc.lastAutoTable.finalY+3,x,y)
+      
+        const Xmax = 182;
+        const Ymax = 290;
 
 
-        doc.addImage(imgData,"JPEG", 14, doc.lastAutoTable.finalY+3+y,x,y)
+
+        const y = Math.trunc(Xmax*64/96);
+        let linhaAtual = Math.trunc(doc.lastAutoTable.finalY);
+
+        if (y+linhaAtual > 290) {
+            doc.addPage()
+
+        }
+
+        console.log('FINAL Y: ' + Math.trunc(doc.lastAutoTable.finalY));
+
+
+        doc.addImage(imgData,"JPEG", 14, doc.lastAutoTable.finalY+3,Xmax,y)
+
+
+        doc.addImage(imgData,"JPEG", 14, doc.lastAutoTable.finalY+5+y,Xmax,y)
         
         // adicionar página
         doc.addPage()
-        doc.addImage(imgData,"JPEG", 14, 10,x,y)
+        doc.addImage(imgData,"JPEG", 14, 10,Xmax,y)
         
 
         doc.save('table.pdf')
