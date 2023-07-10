@@ -6,12 +6,11 @@ https://codepen.io/someatoms/pen/vLYXWB?editors=1010
 
 <script>
     import { jsPDF } from 'jspdf'
-    import autoTable from 'jspdf-autotable'
-    import { fotos } from '$lib/shared/stores';
+    import autoTable from 'jspdf-autotable'    
 
     import { empresa, produto, data,
              orgaoDirecaoSetorial, organizacaoMilitar, 
-             assessor, arqFotos,
+             assessor, fotos,
              objetivo,
              aplicacaoFAB,
              aplicacaoAtividadeFinalistica,
@@ -42,11 +41,12 @@ https://codepen.io/someatoms/pen/vLYXWB?editors=1010
         return conclusao;
     }
 
-    function lerFoto(img, doc) {
+    function adicionarFoto(img, doc, linhaAtual) {
+        const Xmax = 182;
+        const Ymax = 290;
+        
         const Xfig = img.naturalWidth;
         const Yfig = img.naturalHeight;
-
-        console.log(Xfig+":"+Yfig)
 
         let canvas = document.createElement("canvas");
         canvas.width = Xfig;
@@ -56,31 +56,27 @@ https://codepen.io/someatoms/pen/vLYXWB?editors=1010
         ctx.drawImage(img, 0, 0);        
         const imgData = canvas.toDataURL("image/jpeg");
 
-        const Xmax = 182;
-        const Ymax = 290;
-
-        let linhaAtual = Math.trunc(doc.lastAutoTable.finalY);
-        let x = Xmax;
-        
+        let x = Xmax;        
         let y = Math.trunc(x*Yfig/Xfig);
-
 
         if (Ymax - linhaAtual < 70) { // pouco espaço vertical para inserção de figura
             doc.addPage();
+            linhaAtual = 0;
         }
 
         if (y > Ymax - linhaAtual) {
             y = Ymax - linhaAtual;
             x = Math.trunc(y*Xfig/Yfig);
         }
+
+        doc.addImage(imgData,"JPEG", 14, linhaAtual+3,x,y)       
         
-        doc.addImage(imgData,"JPEG", 14, doc.lastAutoTable.finalY+3,x,y)        
+        return linhaAtual+3+y;
     }
 
     
     function gerarPDF() {
-        const doc = new jsPDF()  
-        //const doc = new jsPDF("l", "mm", "a4");      
+        const doc = new jsPDF()          
         autoTable(doc, {
             theme: 'grid',            
             body: [
@@ -124,65 +120,69 @@ https://codepen.io/someatoms/pen/vLYXWB?editors=1010
         })
 
         window.scrollTo(0,0)
+
+        let linhaAtual = Math.trunc(doc.lastAutoTable.finalY);
    
         for (let i=0; i<$fotos.length; i++) {
-            lerFoto($fotos[i], doc)
+            console.log('LINHA ATUAL: '+linhaAtual);
+            linhaAtual = adicionarFoto($fotos[i], doc, linhaAtual);
         }
 
-        doc.save('table.pdf')
+        doc.save('relatório.pdf')
     }
     
-    function gerarRelatorio() {
-        const doc = new jsPDF()        
-
-        let arq = $arqFotos[0];
-        let reader = new FileReader();
-        reader.readAsDataURL(arq);
-        let img = document.getElementById("image-preview");
-
-        reader.onload = function() {            
-            img.src = reader.result;            
-        }
-
-        doc.autoTable({
-            html: '#tabela', // id of the HTML table element
-            bodyStyles: {minCellHeight: 15}, // set minimum cell height
-            didDrawCell: function (data) { // hook to insert image
-                if (data.column.index === 5 && data.cell.section === 'body') { // check if column index is 5 and section is body
-                var td = data.cell.raw; // get original cell data
-                //var img = td.getElementsByTagName('img')[0]; // get image element from HTML data
-                var dim = data.cell.height - data.cell.padding('vertical'); // calculate image dimension
-                var textPos = data.cell.textPos; // get default text position
-                //doc.addImage(img.src, 'JPEG', textPos.x, textPos.y, dim, dim); // add image to PDF document
-                }
-            }
-        });
-    
-        doc.save('relatorio.pdf')
-
-    }
-
 </script>
 
-relatorio
+
 <br>
 <button on:click={ gerarPDF } 
         type="button" 
         class="btn variant-filled">Gerar PDF</button>    
-<button on:click={ gerarRelatorio } 
-        type="button" 
-        class="btn variant-filled">Gerar RELATORIO</button>    
 <br>
 <br>
 <table id='tabela'>
     <tbody>
+        <tr><td colspan="4">1.EMISSOR</td></tr>
         <tr>
-            <td>Empresa</td><td>-----</td>
-            <td>Produto</td><td>-----</td>
-            <td>OM</td><td>------</td>
-            <td>Analista</td><td>-----</td>
+            <td>ODS:</td>
+            <td>OM:</td>
+            <td>Assessor Técnico:</td>
+            <td>Data:</td>
         </tr>
-        <tr><td>Maturidade Tecnológica</td><td>6</td></tr>
+        <tr><td colspan="4">2.OBJETIVO</td></tr>
+        <tr><td colspan="4">texto</td></tr>
+        <tr><td colspan="4">3.EMPRESA</td></tr>
+        <tr><td colspan="4">texto</td></tr>
+        <tr><td colspan="4">4.PRODUTO</td></tr>
+        <tr><td colspan="4">texto</td></tr>
+        <tr><td colspan="4">5.APLICAÇÃO NA ATIVIDADE FINALÍSTICA DE DEFESA</td></tr>
+        <tr><td colspan="4">texto</td></tr>
+        <tr><td colspan="4">6.POSSIBILIDADE DE APLICAÇÃO NA FAB</td></tr>
+        <tr><td colspan="4">texto</td></tr>
+        <tr><td colspan="4">7.CLASSIFICAÇÃO E CATEGORIZAÇÃO DE PRODE/PED</td></tr>
+        <tr><td colspan="4">7.1 CONTEÚDO TECNOLÓGICO</td></tr>
+        <tr><td colspan="4">a) TRL (nível de maturidade tecnológica): </td></tr>
+        <tr><td colspan="4">b) domínio tecnológico: </td></tr>
+        <tr><td colspan="4">c) ciclo tecnológico: </td></tr>
+        <tr><td colspan="4">d) inovação: </td></tr>
+        <tr><td colspan="4">Grau da tabela: </td></tr>
+        <tr><td colspan="4">Justificativa: </td></tr>
+        <tr><td colspan="4">7.2 DIFICULDADE DE OBTENÇÃO</td></tr>
+        <tr><td colspan="4">a) disponibilidade logística: </td></tr>
+        <tr><td colspan="4">b) disponibilidade produtiva: </td></tr>
+        <tr><td colspan="4">Grau da tabela: </td></tr>
+        <tr><td colspan="4">Justificativa: </td></tr>
+        <tr><td colspan="4">7.3 IMPRESCINDIBILIDADE</td></tr>
+        <tr><td colspan="4">a) necessidade estratégica: </td></tr>
+        <tr><td colspan="4">b) necessidade tática: </td></tr>
+        <tr><td colspan="4">Grau da tabela: </td></tr>
+        <tr><td colspan="4">Justificativa: </td></tr>
+        <tr><td colspan="4">7.4 CATEGORIZAÇÃO</td></tr>
+        <tr><td colspan="4">a) fomento operacional (conteúdo tecnológico X imprescindibilidade): </td></tr>
+        <tr><td colspan="4">b) categorização (dificuldade de obtenção X fomento operacional): </td></tr>
+        <tr><td colspan="4">8 CONCLUSÃO</td></tr>
+        <tr><td colspan="4">texto</td></tr>
+        <tr><td colspan="4">9 FOTO(S) DO PRODUTO</td></tr>
     </tbody>    
 </table>
 

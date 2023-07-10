@@ -1,39 +1,31 @@
 <script lang="ts">
     import { FileDropzone } from '@skeletonlabs/skeleton';
-    import { arqFotos, fotos } from '$lib/shared/stores'
+    import { fotos } from '$lib/shared/stores'
 
     let files: FileList;
 
     async function upload() {
         console.log("upload");
+        $fotos = [];
         const arquivos = await files;
 
-        $arqFotos = arquivos;
+        const box = document.getElementById('box');
 
         for (let i=0; i<arquivos.length; i++) {
             let file = arquivos[i];
             let reader = new FileReader();
             reader.readAsDataURL(file);
-
-            reader.onload = function() {                     
-                let img = document.getElementById("image-preview");
+            
+            reader.onload = function() {   
+                let img = document.createElement('img')
+                img.setAttribute('id',"image"+toString(i));                
                 img.src = reader.result;
                 console.log(img.naturalWidth+":"+img.naturalHeight);
                 $fotos.push(img);                
+                box.appendChild(img);
             }    
-        }
-
-        // let file = arquivos[0];
-
-        // let reader = new FileReader();
-
-        // reader.readAsDataURL(file);
-        // reader.onload = function() {
-        //     let img = document.getElementById("image-preview");
-        //     img.src = reader.result;
-        //     console.log(img.naturalWidth);
-        // }
-
+        }        
+        
     }
 </script>
 
@@ -42,6 +34,5 @@
 	<svelte:fragment slot="meta">JPG</svelte:fragment>
 </FileDropzone>
 
-<br>
-<br>
-<img id="image-preview">
+
+<div id="box"></div>
