@@ -122,27 +122,34 @@ https://codepen.io/someatoms/pen/vLYXWB?editors=1010
         const Xmax = 182;
         const Ymax = 290;
 
-
-
-        const y = Math.trunc(Xmax*64/96);
         let linhaAtual = Math.trunc(doc.lastAutoTable.finalY);
+        let x = Xmax;
+        //let y = Math.trunc(x*64/96);
+        let y = Math.trunc(x*Yfig/Xfig);
 
-        if (y+linhaAtual > 290) {
-            doc.addPage()
 
+        if (Ymax - linhaAtual < 70) { // pouco espaço vertical para inserção de figura
+            doc.addPage();
         }
 
-        console.log('FINAL Y: ' + Math.trunc(doc.lastAutoTable.finalY));
+        if (y > Ymax - linhaAtual) {
+            y = Ymax - linhaAtual;
+            x = Math.trunc(y*Xfig/Yfig);
+        }
+        
 
 
-        doc.addImage(imgData,"JPEG", 14, doc.lastAutoTable.finalY+3,Xmax,y)
+        //console.log('FINAL Y: ' + Math.trunc(doc.lastAutoTable.finalY));
+
+        doc.addImage(imgData,"JPEG", 14, doc.lastAutoTable.finalY+3,x,y)
+        //doc.addImage(imgData,"JPEG", 14, doc.lastAutoTable.finalY+3,Xmax,y)
 
 
-        doc.addImage(imgData,"JPEG", 14, doc.lastAutoTable.finalY+5+y,Xmax,y)
+        //doc.addImage(imgData,"JPEG", 14, doc.lastAutoTable.finalY+5+y,Xmax,y)
         
         // adicionar página
-        doc.addPage()
-        doc.addImage(imgData,"JPEG", 14, 10,Xmax,y)
+        //doc.addPage()
+        //doc.addImage(imgData,"JPEG", 14, 10,Xmax,y)
         
 
         doc.save('table.pdf')
