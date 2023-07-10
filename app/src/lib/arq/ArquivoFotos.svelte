@@ -19,8 +19,7 @@
                 let img = document.getElementById("image-preview");
                 img.src = reader.result;
                 console.log(img.naturalWidth+":"+img.naturalHeight);
-                $fotos.push(img);
-                //alert('next')
+                $fotos.push(img);                
             }    
         }
 

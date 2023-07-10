@@ -124,15 +124,12 @@ https://codepen.io/someatoms/pen/vLYXWB?editors=1010
         })
 
         window.scrollTo(0,0)
-
-        
-        
+   
         for (let i=0; i<$fotos.length; i++) {
             lerFoto($fotos[i], doc)
         }
 
         doc.save('table.pdf')
-
     }
     
     function gerarRelatorio() {
