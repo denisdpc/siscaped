@@ -1,7 +1,6 @@
 <script lang="ts">
     import { FileDropzone } from '@skeletonlabs/skeleton';
-    import { arqFotos } from '$lib/shared/stores'
-
+    import { arqFotos, fotos } from '$lib/shared/stores'
 
     let files: FileList;
 
@@ -11,21 +10,31 @@
 
         $arqFotos = arquivos;
 
-        let file = arquivos[0];
-        let reader = new FileReader();
+        for (let i=0; i<arquivos.length; i++) {
+            let file = arquivos[i];
+            let reader = new FileReader();
+            reader.readAsDataURL(file);
 
-        reader.readAsDataURL(file);
-        reader.onload = function() {
-            let img = document.getElementById("image-preview");
-            img.src = reader.result;
-            //console.log("Image size:", img.naturalWidth, "x", img.naturalHeight);
+            reader.onload = function() {                     
+                let img = document.getElementById("image-preview");
+                img.src = reader.result;
+                console.log(img.naturalWidth+":"+img.naturalHeight);
+                $fotos.push(img);
+                //alert('next')
+            }    
         }
 
-        // for (let i=0; i<conteudo.length; i++) {
-        //     console.log(conteudo[i]);
+        // let file = arquivos[0];
+
+        // let reader = new FileReader();
+
+        // reader.readAsDataURL(file);
+        // reader.onload = function() {
+        //     let img = document.getElementById("image-preview");
+        //     img.src = reader.result;
+        //     console.log(img.naturalWidth);
         // }
 
-        //console.log(conteudo);
     }
 </script>
 

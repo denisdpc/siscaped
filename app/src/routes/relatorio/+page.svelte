@@ -7,6 +7,7 @@ https://codepen.io/someatoms/pen/vLYXWB?editors=1010
 <script>
     import { jsPDF } from 'jspdf'
     import autoTable from 'jspdf-autotable'
+    import { fotos } from '$lib/shared/stores';
 
     import { empresa, produto, data,
              orgaoDirecaoSetorial, organizacaoMilitar, 
@@ -41,6 +42,42 @@ https://codepen.io/someatoms/pen/vLYXWB?editors=1010
         return conclusao;
     }
 
+    function lerFoto(img, doc) {
+        const Xfig = img.naturalWidth;
+        const Yfig = img.naturalHeight;
+
+        console.log(Xfig+":"+Yfig)
+
+        let canvas = document.createElement("canvas");
+        canvas.width = Xfig;
+        canvas.height = Yfig;
+        
+        let ctx = canvas.getContext("2d");
+        ctx.drawImage(img, 0, 0);        
+        const imgData = canvas.toDataURL("image/jpeg");
+
+        const Xmax = 182;
+        const Ymax = 290;
+
+        let linhaAtual = Math.trunc(doc.lastAutoTable.finalY);
+        let x = Xmax;
+        
+        let y = Math.trunc(x*Yfig/Xfig);
+
+
+        if (Ymax - linhaAtual < 70) { // pouco espaço vertical para inserção de figura
+            doc.addPage();
+        }
+
+        if (y > Ymax - linhaAtual) {
+            y = Ymax - linhaAtual;
+            x = Math.trunc(y*Xfig/Yfig);
+        }
+        
+        doc.addImage(imgData,"JPEG", 14, doc.lastAutoTable.finalY+3,x,y)        
+    }
+
+    
     function gerarPDF() {
         const doc = new jsPDF()  
         //const doc = new jsPDF("l", "mm", "a4");      
@@ -88,47 +125,14 @@ https://codepen.io/someatoms/pen/vLYXWB?editors=1010
 
         window.scrollTo(0,0)
 
-        let arq = $arqFotos[0];
-        let reader = new FileReader();
-        reader.readAsDataURL(arq);
-        let img = document.getElementById("image-preview");
-
-        reader.onload = function() {                
-            img.src = reader.result;            
-        }
-
-        const Xfig = img.naturalWidth;
-        const Yfig = img.naturalHeight;
-
-        let canvas = document.createElement("canvas");
-        canvas.width = Xfig;
-        canvas.height = Yfig;
         
-        let ctx = canvas.getContext("2d");
-        ctx.drawImage(img, 0, 0);        
-        const imgData = canvas.toDataURL("image/jpeg");
-
-        const Xmax = 182;
-        const Ymax = 290;
-
-        let linhaAtual = Math.trunc(doc.lastAutoTable.finalY);
-        let x = Xmax;
         
-        let y = Math.trunc(x*Yfig/Xfig);
-
-
-        if (Ymax - linhaAtual < 70) { // pouco espaço vertical para inserção de figura
-            doc.addPage();
+        for (let i=0; i<$fotos.length; i++) {
+            lerFoto($fotos[i], doc)
         }
-
-        if (y > Ymax - linhaAtual) {
-            y = Ymax - linhaAtual;
-            x = Math.trunc(y*Xfig/Yfig);
-        }
-        
-        doc.addImage(imgData,"JPEG", 14, doc.lastAutoTable.finalY+3,x,y)        
 
         doc.save('table.pdf')
+
     }
     
     function gerarRelatorio() {
