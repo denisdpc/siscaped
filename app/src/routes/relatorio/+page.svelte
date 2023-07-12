@@ -124,13 +124,12 @@ https://codepen.io/someatoms/pen/vLYXWB?editors=1010
         let linhaAtual = Math.trunc(doc.lastAutoTable.finalY);
    
         for (let i=0; i<$fotos.length; i++) {
-            console.log('LINHA ATUAL: '+linhaAtual);
             linhaAtual = adicionarFoto($fotos[i], doc, linhaAtual);
         }
 
         doc.save('relatório.pdf')
     }
-    
+
 </script>
 
 
@@ -140,64 +139,67 @@ https://codepen.io/someatoms/pen/vLYXWB?editors=1010
         class="btn variant-filled">Gerar PDF</button>    
 <br>
 <br>
-<table id='tabela'>
-    <tbody>
-        <tr><td colspan="4">1.EMISSOR</td></tr>
-        <tr>
-            <td>ODS:</td>
-            <td>OM:</td>
-            <td>Assessor Técnico:</td>
-            <td>Data:</td>
-        </tr>
-        <tr><td colspan="4">2.OBJETIVO</td></tr>
-        <tr><td colspan="4">texto</td></tr>
-        <tr><td colspan="4">3.EMPRESA</td></tr>
-        <tr><td colspan="4">texto</td></tr>
-        <tr><td colspan="4">4.PRODUTO</td></tr>
-        <tr><td colspan="4">texto</td></tr>
-        <tr><td colspan="4">5.APLICAÇÃO NA ATIVIDADE FINALÍSTICA DE DEFESA</td></tr>
-        <tr><td colspan="4">texto</td></tr>
-        <tr><td colspan="4">6.POSSIBILIDADE DE APLICAÇÃO NA FAB</td></tr>
-        <tr><td colspan="4">texto</td></tr>
-        <tr><td colspan="4">7.CLASSIFICAÇÃO E CATEGORIZAÇÃO DE PRODE/PED</td></tr>
-        <tr><td colspan="4">7.1 CONTEÚDO TECNOLÓGICO</td></tr>
-        <tr><td colspan="4">a) TRL (nível de maturidade tecnológica): </td></tr>
-        <tr><td colspan="4">b) domínio tecnológico: </td></tr>
-        <tr><td colspan="4">c) ciclo tecnológico: </td></tr>
-        <tr><td colspan="4">d) inovação: </td></tr>
-        <tr><td colspan="4">Grau da tabela: </td></tr>
-        <tr><td colspan="4">Justificativa: </td></tr>
-        <tr><td colspan="4">7.2 DIFICULDADE DE OBTENÇÃO</td></tr>
-        <tr><td colspan="4">a) disponibilidade logística: </td></tr>
-        <tr><td colspan="4">b) disponibilidade produtiva: </td></tr>
-        <tr><td colspan="4">Grau da tabela: </td></tr>
-        <tr><td colspan="4">Justificativa: </td></tr>
-        <tr><td colspan="4">7.3 IMPRESCINDIBILIDADE</td></tr>
-        <tr><td colspan="4">a) necessidade estratégica: </td></tr>
-        <tr><td colspan="4">b) necessidade tática: </td></tr>
-        <tr><td colspan="4">Grau da tabela: </td></tr>
-        <tr><td colspan="4">Justificativa: </td></tr>
-        <tr><td colspan="4">7.4 CATEGORIZAÇÃO</td></tr>
-        <tr><td colspan="4">a) fomento operacional (conteúdo tecnológico X imprescindibilidade): </td></tr>
-        <tr><td colspan="4">b) categorização (dificuldade de obtenção X fomento operacional): </td></tr>
-        <tr><td colspan="4">8 CONCLUSÃO</td></tr>
-        <tr><td colspan="4">texto</td></tr>
-        <tr><td colspan="4">9 FOTO(S) DO PRODUTO</td></tr>
-    </tbody>    
-</table>
-
-<!-- <img id="image-preview" 
-     src="https://via.placeholder.com/400"
-     style="width:400px"
-     class="rounded rounded-circle" alt="placeholder"> -->
-     <img id="image-preview">
-
-<div id='estilo'>
-    <style>
-        table, th, td {
-            border: 1px solid;
-            border-collapse: collapse;
-            margin-bottom: 10px;
-        }
-    </style>
+<div class="conteudo">
+    
+    <table id='tabela'>
+        <tbody>
+            <tr><td colspan="4">1.EMISSOR</td></tr>
+            <tr>
+                <td>ODS:</td>
+                <td>OM:</td>
+                <td>Assessor Técnico:</td>
+                <td>Data:</td>
+            </tr>
+            <tr><td colspan="4">2.OBJETIVO</td></tr>
+            <tr><td colspan="4">{ $objetivo }</td></tr>
+            <tr><td colspan="4">3.EMPRESA</td></tr>
+            <tr><td colspan="4">{ $empresa }</td></tr>
+            <tr><td colspan="4">4.PRODUTO</td></tr>
+            <tr><td colspan="4">{ $produto }</td></tr>
+            <tr><td colspan="4">5.APLICAÇÃO NA ATIVIDADE FINALÍSTICA DE DEFESA</td></tr>
+            <tr><td colspan="4">{ $aplicacaoAtividadeFinalistica }</td></tr>
+            <tr><td colspan="4">6.POSSIBILIDADE DE APLICAÇÃO NA FAB</td></tr>
+            <tr><td colspan="4">{ $aplicacaoFAB }</td></tr>
+            <tr><td colspan="4">7.CLASSIFICAÇÃO E CATEGORIZAÇÃO DE PRODE/PED</td></tr>
+            <tr><td colspan="4">7.1 CONTEÚDO TECNOLÓGICO</td></tr>
+            <tr><td colspan="4">a) TRL (nível de maturidade tecnológica): { $maturidadeTecnologica }</td></tr>
+            <tr><td colspan="4">b) domínio tecnológico: { $dominioTecnologico }</td></tr>
+            <tr><td colspan="4">c) ciclo tecnológico: { $cicloTecnologico } </td></tr>
+            <tr><td colspan="4">d) inovação: </td></tr> <!-- TODO: verificar se é projeto -->
+            <tr><td colspan="4">Grau da tabela: { $conteudoTecnologico } </td></tr>
+            <tr><td colspan="4">Justificativa: { $justificativaConteudoTecnologico }</td></tr>
+            <tr><td colspan="4">7.2 DIFICULDADE DE OBTENÇÃO</td></tr>
+            <tr><td colspan="4">a) disponibilidade logística: { $disponibilidadeLogistica }</td></tr>
+            <tr><td colspan="4">b) disponibilidade produtiva: { $disponibilidadeProdutiva }</td></tr>
+            <tr><td colspan="4">Grau da tabela: { $dificuldadeObtencao }</td></tr>
+            <tr><td colspan="4">Justificativa: { $justificativaDificuldadeObtencao }</td></tr>
+            <tr><td colspan="4">7.3 IMPRESCINDIBILIDADE</td></tr>
+            <tr><td colspan="4">a) necessidade estratégica: { $necessidadeEstrategica }</td></tr>
+            <tr><td colspan="4">b) necessidade tática: { $necessidadeTatica }</td></tr>
+            <tr><td colspan="4">Grau da tabela: { $imprescindibilidade } </td></tr>
+            <tr><td colspan="4">Justificativa: { $justificativaImprescindibilidade }</td></tr>
+            <tr><td colspan="4">7.4 CATEGORIZAÇÃO</td></tr>
+            <tr><td colspan="4">a) fomento operacional (conteúdo tecnológico X imprescindibilidade): { $fomentoOperacional }</td></tr>
+            <tr><td colspan="4">b) categorização (dificuldade de obtenção X fomento operacional): { $categorizacao }</td></tr>
+            <tr><td colspan="4">8 CONCLUSÃO</td></tr>
+            <tr><td colspan="4">{ obterConclusao() }</td></tr>
+            <tr><td colspan="4">9 FOTO(S) DO PRODUTO</td></tr>
+        </tbody>    
+    </table>    
 </div>
+
+{#each $fotos as foto}
+    <img src="{foto.src}" alt=""><br>
+{/each}    
+
+<style>
+    table, td {
+        border: 1px solid;
+        border-collapse: collapse;
+        margin-bottom: 10px;
+    }
+    .conteudo {
+        display: flex;
+        justify-content: center;
+    }
+</style>

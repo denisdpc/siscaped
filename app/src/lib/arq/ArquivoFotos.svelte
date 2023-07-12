@@ -5,7 +5,6 @@
     let files: FileList;
 
     async function upload() {
-        console.log("upload");
         $fotos = [];
         const arquivos = await files;
 
@@ -20,7 +19,6 @@
                 let img = document.createElement('img')
                 img.setAttribute('id',"image"+toString(i));                
                 img.src = reader.result;
-                console.log(img.naturalWidth+":"+img.naturalHeight);
                 $fotos.push(img);                
                 box.appendChild(img);
             }    

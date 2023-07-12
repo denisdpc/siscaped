@@ -15,7 +15,7 @@
 <br><br>
 <input class="input" 
        type="text" 
-       placeholder="Órgão de Direção Setorial (OSD)" 
+       placeholder="Órgão de Direção Setorial (ODS)" 
        bind:value = { $orgaoDirecaoSetorial }/>
     <br><br>
     <input class="input" 
