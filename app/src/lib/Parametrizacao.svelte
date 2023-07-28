@@ -7,7 +7,7 @@
     import ParametroFormat from "$lib/ParametroFormat.svelte";  
 
     import { maturidadeTecnologica, 
-            dominioTecnologicoGrau, cicloTecnologico,
+            dominioTecnologicoGrau, cicloTecnologicoGrau,
             disponibilidadeLogistica, disponibilidadeProdutiva,
             necessidadeEstrategica, necessidadeTatica,
             conteudoTecnologico, imprescindibilidade,
@@ -24,7 +24,7 @@
     <br>
     - Domínio Tecnológico ( { $dominioTecnologicoGrau } )
     <br><br>
-    - Ciclo Tecnológico ( { $cicloTecnologico } )
+    - Ciclo Tecnológico ( { $cicloTecnologicoGrau } )
     <br><br><hr><br>
     <ProdeDificuldadeObtencao />
     <br>

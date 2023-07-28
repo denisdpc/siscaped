@@ -13,10 +13,15 @@
         {id: 1, grau: 'Incremental', descricao: 'incorpora melhorias (funcionalidades, benefícios, manufatura, processo) em produtos por meio da adoção de tecnologias conhecidas e introdução em mercados existentes'},
     ]
     $: $cicloTecnologico, (() => {
-        // TODO diferenciar projeto de produto, corrigir tabela
-        if ($cicloTecnologico>0) {
-            $cicloTecnologicoGrau = lista[3-parseInt($cicloTecnologico)].grau;                    
-        }                
+        if ($maturidadeTecnologica>3) {
+            if ($cicloTecnologico>0) {
+                $cicloTecnologicoGrau = lista_bemServicoObraInfo[3-parseInt($cicloTecnologico)].grau;                    
+            }
+        } else {
+            if ($cicloTecnologico>0) {
+                $cicloTecnologicoGrau = lista_projeto[3-parseInt($cicloTecnologico)].grau;                    
+            }  
+        }                        
     })();
 </script>
 
