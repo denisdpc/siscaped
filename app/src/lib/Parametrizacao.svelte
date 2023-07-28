@@ -7,12 +7,12 @@
     import ParametroFormat from "$lib/ParametroFormat.svelte";  
 
     import { maturidadeTecnologica, 
-            dominioTecnologico, cicloTecnologico,
+            dominioTecnologicoGrau, cicloTecnologico,
             disponibilidadeLogistica, disponibilidadeProdutiva,
             necessidadeEstrategica, necessidadeTatica,
             conteudoTecnologico, imprescindibilidade,
             fomentoOperacional, dificuldadeObtencao
-           } from '$lib/shared/stores.js';
+           } from '$lib/shared/stores.js';    
 </script>
 
 <div class="h3 bg-black p-6">
@@ -22,7 +22,7 @@
     <br><br><hr><br>
     <ProdeConteudoTecnologico />
     <br>
-    - Domínio Tecnológico ( { $dominioTecnologico } )
+    - Domínio Tecnológico ( { $dominioTecnologicoGrau } )
     <br><br>
     - Ciclo Tecnológico ( { $cicloTecnologico } )
     <br><br><hr><br>

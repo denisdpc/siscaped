@@ -13,8 +13,10 @@ export const data = writable('');
 
 export const maturidadeTecnologica = writable(0);
 
-export const cicloTecnologico = writable(0);
 export const dominioTecnologico = writable(0);
+export const dominioTecnologicoGrau = writable('');
+export const cicloTecnologico = writable(0);
+export const cicloTecnologicoGrau = writable('');
 export const conteudoTecnologico = writable(-1);
 export const justificativaConteudoTecnologico = writable('');
 

@@ -47,6 +47,7 @@
 				{/if}		
 				<a href="/relatorio">relatorio</a>
 				<a href="{manual}" target="_blank">manual</a>
+				<a href="/manual">manual2</a>
 				<a href="/sobre">sobre</a>				
 			</svelte:fragment>			
 		</AppBar>

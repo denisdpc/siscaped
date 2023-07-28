@@ -10,7 +10,7 @@
         {id: 3, item: 'TRL 3', descricao: 'Prova de conceito analítica e experimental de características e/ou funções críticas'},
         {id: 2, item: 'TRL 2', descricao: 'Conceito e/ ou aplicação de tecnologia formulada'},
         {id: 1, item: 'TRL 1', descricao: 'Princípios básicos observados e reportados'},
-    ]    
+    ]        
 </script>
 
 <p />
