@@ -15,7 +15,7 @@
         <th class="tg-0pky1" rowspan="3">necessidade estratégica</th>
         <th class="tg-0pky">alta</th>
         <th class="tg-0pky">2</th>
-        <th class="tg-0pky">2</th>
+        <th class="tg-0pky">3</th>
         <th class="tg-0pky">3</th>        
       </tr>
       <tr>
@@ -25,7 +25,7 @@
         <th class="tg-0pky">3</th>
       </tr>
       <tr>
-        <th class="tg-0pky">média</th>
+        <th class="tg-0pky">baixa</th>
         <th class="tg-0pky">0</th>
         <th class="tg-0pky">1</th>
         <th class="tg-0pky">2</th>
