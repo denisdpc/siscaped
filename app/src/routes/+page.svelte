@@ -21,6 +21,8 @@
 	import Justificativaimprescindibilidade from '$lib/justificativas/Justificativaimprescindibilidade.svelte';	
 
 	import ArquivoFotos from '$lib/arq/ArquivoFotos.svelte';
+
+	import TabelaFomentoCategorizacao from '$lib/justificativas/TabelaFomentoCategorizacao.svelte';
 </script>
 
 <Accordion autocollapse>
@@ -86,5 +88,9 @@
 	<AccordionItem>		
 		<svelte:fragment slot="summary"><h3 class="h3 bg-black">Fotos</h3></svelte:fragment>
 		<svelte:fragment slot="content"><ArquivoFotos /></svelte:fragment>
+	</AccordionItem>
+	<AccordionItem>		
+		<svelte:fragment slot="summary"><h3 class="h3 bg-black">Fomento Operacional & Categorização</h3></svelte:fragment>
+		<svelte:fragment slot="content"><TabelaFomentoCategorizacao /></svelte:fragment>
 	</AccordionItem>
 </Accordion>

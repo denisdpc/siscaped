@@ -46,8 +46,7 @@
 					<ArquivoGerar on:message={handleMessage} />					
 				{/if}		
 				<a href="/relatorio">relatorio</a>
-				<a href="{manual}" target="_blank">manual</a>
-				<a href="/manual">manual2</a>
+				<a href="{manual}" target="_blank">manual</a>				
 				<a href="/sobre">sobre</a>				
 			</svelte:fragment>			
 		</AppBar>
@@ -55,4 +54,3 @@
 	<svelte:fragment slot="sidebarRight"><Parametrizacao /></svelte:fragment>
 	<slot />
 </AppShell>
-
