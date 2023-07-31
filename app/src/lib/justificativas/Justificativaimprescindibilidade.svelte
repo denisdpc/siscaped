@@ -1,5 +1,7 @@
 <script>
-    import { justificativaImprescindibilidade } from "$lib/shared/stores";
+    import { justificativaImprescindibilidade,
+             necessidadeEstrategicaGrau,
+             necessidadeTaticaGrau } from "$lib/shared/stores";
 </script>
 
 <h3>
@@ -13,16 +15,16 @@
     <thead>
       <tr>
         <th class="tg-0pky1" rowspan="3">necessidade estratégica</th>
-        <th class="tg-0pky">alta</th>
-        <th class="tg-0pky">2</th>
-        <th class="tg-0pky">3</th>
-        <th class="tg-0pky">3</th>        
+        <th class={ $necessidadeEstrategicaGrau==='Alta' ? 'selecionado' : 'tg-0pky'}>alta</th>  
+        <th class={ $necessidadeEstrategicaGrau==='Alta' && $necessidadeTaticaGrau==='Baixa' ? 'selecionado' : 'tg-0pky'}>2</th>      
+        <th class={ $necessidadeEstrategicaGrau==='Alta' && $necessidadeTaticaGrau==='Média' ? 'selecionado' : 'tg-0pky'}>3</th>
+        <th class={ $necessidadeEstrategicaGrau==='Alta' && $necessidadeTaticaGrau==='Alta' ? 'selecionado' : 'tg-0pky'}>3</th>                
       </tr>
       <tr>
-        <th class="tg-0pky">média</th>
-        <th class="tg-0pky">1</th>
-        <th class="tg-0pky">2</th>
-        <th class="tg-0pky">3</th>
+        <th class={ $necessidadeEstrategicaGrau==='Média' ? 'selecionado' : 'tg-0pky'}>média</th>  
+        <th class={ $necessidadeEstrategicaGrau==='Média' && $necessidadeTaticaGrau==='Baixa' ? 'selecionado' : 'tg-0pky'}>1</th>      
+        <th class={ $necessidadeEstrategicaGrau==='Média' && $necessidadeTaticaGrau==='Média' ? 'selecionado' : 'tg-0pky'}>2</th>
+        <th class={ $necessidadeEstrategicaGrau==='Média' && $necessidadeTaticaGrau==='Alta' ? 'selecionado' : 'tg-0pky'}>3</th>                
       </tr>
       <tr>
         <th class="tg-0pky">baixa</th>

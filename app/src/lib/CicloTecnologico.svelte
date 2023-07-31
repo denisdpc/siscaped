@@ -4,7 +4,7 @@
 
     const lista_bemServicoObraInfo = [
         {id: 3, grau: 'Inovador', descricao: 'reflete o incremento da capacidade operacional através de tecnologias inovadoras, de parte ou total'},
-        {id: 2, grau: 'Contemporaneo', descricao: 'reflete o incremento da capacidade operacional através de absorção de tecnologia contemporânea, de parte ou total'},
+        {id: 2, grau: 'Contemporâneo', descricao: 'reflete o incremento da capacidade operacional através de absorção de tecnologia contemporânea, de parte ou total'},
         {id: 1, grau: 'Domínio Público', descricao: 'reflete a capacidade operacional baseada na tecnologia ostensiva'}        
     ]
     const lista_projeto = [
