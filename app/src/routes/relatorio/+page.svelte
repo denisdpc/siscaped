@@ -15,14 +15,14 @@ https://codepen.io/someatoms/pen/vLYXWB?editors=1010
              aplicacaoFAB,
              aplicacaoAtividadeFinalistica,
              maturidadeTecnologica, 
-             cicloTecnologico, 
-             dominioTecnologico,
+             cicloTecnologicoGrau, 
+             dominioTecnologicoGrau,
              conteudoTecnologico,
-             disponibilidadeLogistica,
-             disponibilidadeProdutiva,
+             disponibilidadeLogisticaGrau,
+             disponibilidadeProdutivaGrau,
              dificuldadeObtencao,
-             necessidadeEstrategica,
-             necessidadeTatica,
+             necessidadeEstrategicaGrau,
+             necessidadeTaticaGrau,
              imprescindibilidade,
              fomentoOperacional,
              categorizacao,
@@ -95,19 +95,19 @@ https://codepen.io/someatoms/pen/vLYXWB?editors=1010
                 [{ colSpan: 4, content: '7. CLASSIFICAÇÃO E CATEGORIZAÇÃO DE PRODE/PED (Ref. Manual de Métricas)', styles: { fillColor: 'gainsboro', fontStyle: 'bold'}}],
                 [{ colSpan: 4, content: '7.1 CONTEÚDO TECNOLÓGICO',  styles: { fillColor: 'lightcyan'}}],
                 [{ colSpan: 4, content: 'a) TRL (nível de maturidade tecnológica): ' + $maturidadeTecnologica}],
-                [{ colSpan: 4, content: 'b) domínio tecnológico: ' + $dominioTecnologico}],
-                [{ colSpan: 4, content: 'c) ciclo tecnológico: '+ $cicloTecnologico}],
+                [{ colSpan: 4, content: 'b) domínio tecnológico: ' + $dominioTecnologicoGrau}],
+                [{ colSpan: 4, content: 'c) ciclo tecnológico: '+ $cicloTecnologicoGrau}],
                 [{ colSpan: 4, content: 'd) inovação: ---'}],   // TODO: verificar se é projeto
                 [{ colSpan: 4, content: 'Grau da tabela: ' + $conteudoTecnologico}], // TODO: inserir --- se for -1
                 [{ colSpan: 4, content: 'Justificativa: ' + $justificativaConteudoTecnologico}],
                 [{ colSpan: 4, content: '7.2 DIFICULDADE DE OBTENÇÃO', styles: { fillColor: 'lightcyan'}}],
-                [{ colSpan: 4, content: 'a) disponibilidade logística: ' + $disponibilidadeLogistica}],
-                [{ colSpan: 4, content: 'b) disponibilidade produtiva: ' + $disponibilidadeProdutiva}],
+                [{ colSpan: 4, content: 'a) disponibilidade logística: ' + $disponibilidadeLogisticaGrau}],
+                [{ colSpan: 4, content: 'b) disponibilidade produtiva: ' + $disponibilidadeProdutivaGrau}],
                 [{ colSpan: 4, content: 'Grau da tabela: ' + $dificuldadeObtencao }],   // TODO: inserir --- se for -1
                 [{ colSpan: 4, content: 'Justificativa: ' +  $justificativaDificuldadeObtencao }],
                 [{ colSpan: 4, content: '7.3 IMPRESCINDIBILIDADE', styles: { fillColor: 'lightcyan'}}],
-                [{ colSpan: 4, content: 'a) necessidade estratégica: ' + $necessidadeEstrategica}],
-                [{ colSpan: 4, content: 'b) necessidade tática: ' + $necessidadeTatica}],
+                [{ colSpan: 4, content: 'a) necessidade estratégica: ' + $necessidadeEstrategicaGrau}],
+                [{ colSpan: 4, content: 'b) necessidade tática: ' + $necessidadeTaticaGrau}],
                 [{ colSpan: 4, content: 'Grau da tabela: '+ $imprescindibilidade}], // TODO: inserir --- se for -1
                 [{ colSpan: 4, content: 'Justificativa: '+$justificativaImprescindibilidade}],
                 [{ colSpan: 4, content: '7.4 CATEGORIZAÇÃO', styles: { fillColor: 'lightcyan'}}],
@@ -145,10 +145,10 @@ https://codepen.io/someatoms/pen/vLYXWB?editors=1010
         <tbody>
             <tr><td colspan="4">1.EMISSOR</td></tr>
             <tr>
-                <td>ODS:</td>
-                <td>OM:</td>
-                <td>Assessor Técnico:</td>
-                <td>Data:</td>
+                <td>ODS: { $orgaoDirecaoSetorial }</td>
+                <td>OM: { $organizacaoMilitar }</td>
+                <td>Assessor Técnico: { $assessor }</td>
+                <td>Data: { $data }</td>
             </tr>
             <tr><td colspan="4">2.OBJETIVO</td></tr>
             <tr><td colspan="4">{ $objetivo }</td></tr>
@@ -163,19 +163,19 @@ https://codepen.io/someatoms/pen/vLYXWB?editors=1010
             <tr><td colspan="4">7.CLASSIFICAÇÃO E CATEGORIZAÇÃO DE PRODE/PED</td></tr>
             <tr><td colspan="4">7.1 CONTEÚDO TECNOLÓGICO</td></tr>
             <tr><td colspan="4">a) TRL (nível de maturidade tecnológica): { $maturidadeTecnologica }</td></tr>
-            <tr><td colspan="4">b) domínio tecnológico: { $dominioTecnologico }</td></tr>
-            <tr><td colspan="4">c) ciclo tecnológico: { $cicloTecnologico } </td></tr>
+            <tr><td colspan="4">b) domínio tecnológico: { $dominioTecnologicoGrau }</td></tr>
+            <tr><td colspan="4">c) ciclo tecnológico: { $cicloTecnologicoGrau } </td></tr>
             <tr><td colspan="4">d) inovação: </td></tr> <!-- TODO: verificar se é projeto -->
             <tr><td colspan="4">Grau da tabela: { $conteudoTecnologico } </td></tr>
             <tr><td colspan="4">Justificativa: { $justificativaConteudoTecnologico }</td></tr>
             <tr><td colspan="4">7.2 DIFICULDADE DE OBTENÇÃO</td></tr>
-            <tr><td colspan="4">a) disponibilidade logística: { $disponibilidadeLogistica }</td></tr>
-            <tr><td colspan="4">b) disponibilidade produtiva: { $disponibilidadeProdutiva }</td></tr>
+            <tr><td colspan="4">a) disponibilidade logística: { $disponibilidadeLogisticaGrau }</td></tr>
+            <tr><td colspan="4">b) disponibilidade produtiva: { $disponibilidadeProdutivaGrau }</td></tr>
             <tr><td colspan="4">Grau da tabela: { $dificuldadeObtencao }</td></tr>
             <tr><td colspan="4">Justificativa: { $justificativaDificuldadeObtencao }</td></tr>
             <tr><td colspan="4">7.3 IMPRESCINDIBILIDADE</td></tr>
-            <tr><td colspan="4">a) necessidade estratégica: { $necessidadeEstrategica }</td></tr>
-            <tr><td colspan="4">b) necessidade tática: { $necessidadeTatica }</td></tr>
+            <tr><td colspan="4">a) necessidade estratégica: { $necessidadeEstrategicaGrau }</td></tr>
+            <tr><td colspan="4">b) necessidade tática: { $necessidadeTaticaGrau }</td></tr>
             <tr><td colspan="4">Grau da tabela: { $imprescindibilidade } </td></tr>
             <tr><td colspan="4">Justificativa: { $justificativaImprescindibilidade }</td></tr>
             <tr><td colspan="4">7.4 CATEGORIZAÇÃO</td></tr>
