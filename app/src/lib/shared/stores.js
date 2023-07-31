@@ -21,12 +21,16 @@ export const conteudoTecnologico = writable(-1);
 export const justificativaConteudoTecnologico = writable('');
 
 export const disponibilidadeLogistica = writable(0);
+export const disponibilidadeLogisticaGrau = writable('');
 export const disponibilidadeProdutiva = writable(0);
+export const disponibilidadeProdutivaGrau = writable('');
 export const dificuldadeObtencao = writable(-1);
 export const justificativaDificuldadeObtencao = writable('');
 
 export const necessidadeEstrategica = writable(0);
+export const necessidadeEstrategicaGrau = writable('');
 export const necessidadeTatica = writable(0);
+export const necessidadeTaticaGrau = writable('');
 export const imprescindibilidade = writable(-1);
 export const justificativaImprescindibilidade = writable('');
 

@@ -8,8 +8,8 @@
 
     import { maturidadeTecnologica, 
             dominioTecnologicoGrau, cicloTecnologicoGrau,
-            disponibilidadeLogistica, disponibilidadeProdutiva,
-            necessidadeEstrategica, necessidadeTatica,
+            disponibilidadeLogisticaGrau, disponibilidadeProdutivaGrau,
+            necessidadeEstrategicaGrau, necessidadeTaticaGrau,
             conteudoTecnologico, imprescindibilidade,
             fomentoOperacional, dificuldadeObtencao
            } from '$lib/shared/stores.js';    
@@ -28,15 +28,15 @@
     <br><br><hr><br>
     <ProdeDificuldadeObtencao />
     <br>
-    - Disponibilidade Logística ( { $disponibilidadeLogistica } )
+    - Disponibilidade Logística ( { $disponibilidadeLogisticaGrau } )
     <br><br>
-    - Disponibilidade Produtiva ( { $disponibilidadeProdutiva } )
+    - Disponibilidade Produtiva ( { $disponibilidadeProdutivaGrau } )
     <br><br><hr><br>
     <ProdeImprescindibilidade />
     <br>
-    - Necessidade Estratégica ( { $necessidadeEstrategica } )
+    - Necessidade Estratégica ( { $necessidadeEstrategicaGrau } )
     <br><br>
-    - Necessidade Tática ( { $necessidadeTatica } )
+    - Necessidade Tática ( { $necessidadeTaticaGrau } )
     <br><br><hr><br>
     <ProdeFomentoOperacional />    
     <br>

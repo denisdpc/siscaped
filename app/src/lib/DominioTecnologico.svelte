@@ -13,8 +13,6 @@
     })();
 </script>
 
-{ $dominioTecnologicoGrau }
-
 <Opcionario 
 	lista={lista}
     grupo = "dominio"
