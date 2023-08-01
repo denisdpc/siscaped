@@ -23,10 +23,38 @@
 	import ArquivoFotos from '$lib/arq/ArquivoFotos.svelte';
 
 	import TabelaFomentoCategorizacao from '$lib/justificativas/TabelaFomentoCategorizacao.svelte';
+
+	const items = [
+		{descricao: 'Identificação', componente: Identificacao },
+		{descricao: 'Objetivo', componente: Objetivo },
+		{descricao: 'Aplicação na FAB', componente: AplicacaoFAB },
+		{descricao: 'Aplicação na atividade finalística de defesa', componente: AplicacaoAtividadeFinalistica },
+		{descricao: 'Maturidade Tecnológica', componente: MaturidadeTecnologica },
+		{descricao: 'Domínio Tecnológico', componente: DominioTecnologico },
+		{descricao: 'Ciclo Tecnológico', componente: CicloTecnologico },
+		{descricao: 'Conteúdo Tecnológico', componente: JustificativaConteudoTecnologico },
+		{descricao: 'Disponibilidade Logística', componente: DisponibilidadeLogistica },
+		{descricao: 'Disponibilidade Produtiva', componente: DisponibilidadeProdutiva },
+		{descricao: 'Dificuldade de Obtenção', componente: JustificativaDificuldadeObtencao },
+		{descricao: 'Necessidade Estratégica', componente: NecessidadeEstrategica },
+		{descricao: 'Necessidade Tática', componente: NecessidadeTatica },
+		{descricao: 'Imprescindibilidade', componente: Justificativaimprescindibilidade },
+		{descricao: 'Fotos', componente: ArquivoFotos },
+		{descricao: 'Fomento Operacional & Categorização', componente: TabelaFomentoCategorizacao }
+	]
 </script>
 
 <Accordion autocollapse>
-	<!-- <AccordionItem open>		 -->
+	{#each items as item}
+		<AccordionItem>
+			<svelte:fragment slot="summary"><h3 class="h3 bg-black">{ item.descricao }</h3></svelte:fragment>
+			<svelte:fragment slot="content"><svelte:component this={ item.componente} /></svelte:fragment>
+		</AccordionItem>
+	{/each}
+</Accordion>
+
+<!-- 
+<Accordion autocollapse>	
 	<AccordionItem>
 		<svelte:fragment slot="summary"><h3 class="h3 bg-black">Identificação</h3></svelte:fragment>
 		<svelte:fragment slot="content"><Identificacao /></svelte:fragment>
@@ -93,4 +121,4 @@
 		<svelte:fragment slot="summary"><h3 class="h3 bg-black">Fomento Operacional & Categorização</h3></svelte:fragment>
 		<svelte:fragment slot="content"><TabelaFomentoCategorizacao /></svelte:fragment>
 	</AccordionItem>
-</Accordion>
+</Accordion> -->
