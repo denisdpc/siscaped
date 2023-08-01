@@ -27,18 +27,18 @@
         <th class={ $necessidadeEstrategicaGrau==='Média' && $necessidadeTaticaGrau==='Alta' ? 'selecionado' : 'tg-0pky'}>3</th>                
       </tr>
       <tr>
-        <th class="tg-0pky">baixa</th>
-        <th class="tg-0pky">0</th>
-        <th class="tg-0pky">1</th>
-        <th class="tg-0pky">2</th>
+        <th class={ $necessidadeEstrategicaGrau==='Baixa' ? 'selecionado' : 'tg-0pky'}>baixa</th>  
+        <th class={ $necessidadeEstrategicaGrau==='Baixa' && $necessidadeTaticaGrau==='Baixa' ? 'selecionado' : 'tg-0pky'}>0</th>      
+        <th class={ $necessidadeEstrategicaGrau==='Baixa' && $necessidadeTaticaGrau==='Média' ? 'selecionado' : 'tg-0pky'}>1</th>
+        <th class={ $necessidadeEstrategicaGrau==='Baixa' && $necessidadeTaticaGrau==='Alta' ? 'selecionado' : 'tg-0pky'}>2</th>                
       </tr>
     </thead>
     <tbody>
       <tr>
         <td class="tg-0pky1" colspan="2" rowspan="2">projeto / bem / serviço / obra / informação</td>
-        <td class="tg-0pky">baixa</td>
-        <td class="tg-0pky">média</td>
-        <td class="tg-0pky">alta</td>
+        <td class={ $necessidadeTaticaGrau==='Baixa' ? 'selecionado' : 'tg-0pky'}>baixa</td>  
+        <td class={ $necessidadeTaticaGrau==='Média' ? 'selecionado' : 'tg-0pky'}>média</td>  
+        <td class={ $necessidadeTaticaGrau==='Alta' ? 'selecionado' : 'tg-0pky'}>alta</td>          
       </tr>
       <tr>
         <td class="tg-0pky1" colspan="3">necessidade tática</td>      

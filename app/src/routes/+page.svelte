@@ -18,7 +18,7 @@
 
     import NecessidadeEstrategica from "$lib/NecessidadeEstrategica.svelte";
     import NecessidadeTatica from "$lib/NecessidadeTatica.svelte";
-	import Justificativaimprescindibilidade from '$lib/justificativas/Justificativaimprescindibilidade.svelte';	
+	import Justificativaimprescindibilidade from '$lib/justificativas/JustificativaImprescindibilidade.svelte';	
 
 	import ArquivoFotos from '$lib/arq/ArquivoFotos.svelte';
 
