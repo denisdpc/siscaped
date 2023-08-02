@@ -122,6 +122,8 @@ https://codepen.io/someatoms/pen/vLYXWB?editors=1010
         window.scrollTo(0,0)
 
         let linhaAtual = Math.trunc(doc.lastAutoTable.finalY);
+
+        //console.log($fotos.length);
    
         for (let i=0; i<$fotos.length; i++) {
             linhaAtual = adicionarFoto($fotos[i], doc, linhaAtual);

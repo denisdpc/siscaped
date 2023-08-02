@@ -3,9 +3,10 @@
     import { fotos } from '$lib/shared/stores'
 
     let files: FileList;
+    
 
     async function upload() {
-        $fotos = [];
+        // $fotos = [];
         const arquivos = await files;
 
         const box = document.getElementById('box');
@@ -17,13 +18,19 @@
             
             reader.onload = function() {   
                 let img = document.createElement('img')
-                img.setAttribute('id',"image"+toString(i));                
+                img.setAttribute('id',file.name);
                 img.src = reader.result;
-                $fotos.push(img);                
-                box.appendChild(img);
+                $fotos.push(img);                                
+                //box.appendChild(img);
+                $fotos = $fotos;
             }    
-        }        
-        
+        }
+    }
+
+    function excluirFoto(idToRemove) {      
+        const indexToRemove = $fotos.findIndex(object => object.id === idToRemove);        
+        $fotos.splice(indexToRemove, 1);   
+        $fotos = $fotos;     
     }
 </script>
 
@@ -33,4 +40,31 @@
 </FileDropzone>
 
 
-<div id="box"></div>
+{#if $fotos.length>0}
+<div class="table-container">
+    <table class="table table-cell-fit">
+        <thead>
+            <tr>
+                <th>Arquivo</th>
+                <th>Excluir</th>
+            </tr>
+        </thead>
+        <tbody>
+            {#each $fotos as foto}
+            <tr>
+                <td>{ foto.id }</td>
+                <td on:click={() => {excluirFoto(foto.id)}}>X</td>
+            </tr>            
+            {/each}
+        </tbody>
+    </table>
+</div>
+     
+{/if}
+
+
+<!-- <div id="box"></div> -->
+
+<style>    
+    td { text-align: center; }
+</style>

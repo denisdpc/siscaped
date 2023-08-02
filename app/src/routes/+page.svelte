@@ -39,8 +39,8 @@
 		{descricao: 'Necessidade Estratégica', componente: NecessidadeEstrategica },
 		{descricao: 'Necessidade Tática', componente: NecessidadeTatica },
 		{descricao: 'Imprescindibilidade', componente: Justificativaimprescindibilidade },
-		{descricao: 'Fotos', componente: ArquivoFotos },
-		{descricao: 'Fomento Operacional & Categorização', componente: TabelaFomentoCategorizacao }
+		{descricao: 'Fomento Operacional & Categorização', componente: TabelaFomentoCategorizacao },
+		{descricao: 'Fotos', componente: ArquivoFotos }
 	]
 </script>
 
