@@ -84,11 +84,8 @@
         };
         modalStore.trigger(modal);
     }).then((r: any) => {
-        console.log('resolved response:', r);
         if (r) {
-            getJSONfotos();
-            const content = JSON.stringify(jsonData); 
-            //console.log(content);
+            const content = JSON.stringify(jsonData);             
             const a = document.createElement("a");
             const file = new Blob([content], {type: "text/plain"});
             a.href = URL.createObjectURL(file);
@@ -104,4 +101,4 @@
 
 </script>
 
-<Modal />
+<Modal buttonTextSubmit={"Gerar"} buttonTextCancel={"Cancelar"} />
