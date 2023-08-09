@@ -8,14 +8,14 @@
              aplicacaoFAB,
              aplicacaoAtividadeFinalistica,
              maturidadeTecnologica, 
-             cicloTecnologico, 
-             dominioTecnologico,
+             cicloTecnologico, cicloTecnologicoGrau,
+             dominioTecnologico, dominioTecnologicoGrau,
              conteudoTecnologico,
-             disponibilidadeLogistica,
-             disponibilidadeProdutiva,
+             disponibilidadeLogistica, disponibilidadeLogisticaGrau,
+             disponibilidadeProdutiva, disponibilidadeProdutivaGrau,
              dificuldadeObtencao,
-             necessidadeEstrategica,
-             necessidadeTatica,
+             necessidadeEstrategica, necessidadeEstrategicaGrau,
+             necessidadeTatica, necessidadeTaticaGrau,
              imprescindibilidade,
              fomentoOperacional,
              categorizacao,
@@ -23,6 +23,7 @@
              justificativaDificuldadeObtencao,
              justificativaImprescindibilidade
             } from "$lib/shared/stores";
+	import { json } from '@sveltejs/kit';
 
     let files: FileList;
 
@@ -42,11 +43,17 @@
 
         $maturidadeTecnologica = jsonData['maturidadeTecnologica']
         $cicloTecnologico = jsonData['cicloTecnologico']
+        $cicloTecnologicoGrau = jsonData['cicloTecnologicoGrau']
         $dominioTecnologico = jsonData['dominioTecnologico']
+        $dominioTecnologicoGrau = jsonData['dominioTecnologicoGrau']
         $disponibilidadeLogistica = jsonData['disponibilidadeLogistica']
+        $disponibilidadeLogisticaGrau = jsonData['disponibilidadeLogisticaGrau']
         $disponibilidadeProdutiva = jsonData['disponibilidadeProdutiva']
+        $disponibilidadeProdutivaGrau = jsonData['disponibilidadeProdutivaGrau']
         $necessidadeEstrategica = jsonData['necessidadeEstrategica']
+        $necessidadeEstrategicaGrau = jsonData['necessidadeEstrategicaGrau']
         $necessidadeTatica = jsonData['necessidadeTatica']
+        $necessidadeTaticaGrau = jsonData['necessidadeTaticaGrau'];
         
         const calculados = jsonData['calculados'];
         $conteudoTecnologico = calculados['conteudoTecnologico'];
