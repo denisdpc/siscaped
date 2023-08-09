@@ -21,9 +21,9 @@
              categorizacao,
              justificativaConteudoTecnologico,
              justificativaDificuldadeObtencao,
-             justificativaImprescindibilidade
+             justificativaImprescindibilidade,
+             fotos
             } from "$lib/shared/stores";
-	import { json } from '@sveltejs/kit';
 
     let files: FileList;
 
@@ -68,8 +68,21 @@
         $justificativaConteudoTecnologico = justificaticas['conteudoTecnologico'];
         $justificativaDificuldadeObtencao = justificaticas['dificuldadeObtencao'];
         $justificativaImprescindibilidade = justificaticas['imprescindibilidade'];
-
+        
+        carregarFotos(jsonData['fotos']);        
     }
+
+    function carregarFotos(fotos) {
+        $fotos = [];
+        for (const i in fotos) {
+            let img = document.createElement('img')
+            img.setAttribute('id',fotos[i].id);
+            img.src = fotos[i].src;
+            $fotos.push(img);                                 
+        }
+        $fotos = $fotos;
+    }
+
 </script>
 
 <FileButton type="file" name="files" button="variant-filled"

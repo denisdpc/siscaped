@@ -20,8 +20,7 @@
                 let img = document.createElement('img')
                 img.setAttribute('id',file.name);
                 img.src = reader.result;
-                $fotos.push(img);                                
-                //box.appendChild(img);
+                $fotos.push(img);                                                                                
                 $fotos = $fotos;
             }    
         }

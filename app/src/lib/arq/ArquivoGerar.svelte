@@ -23,7 +23,8 @@
              categorizacao,
              justificativaConteudoTecnologico,
              justificativaDificuldadeObtencao,
-             justificativaImprescindibilidade
+             justificativaImprescindibilidade,
+             fotos
             } from "$lib/shared/stores";
 
     const jsonData = {
@@ -60,8 +61,17 @@
             'conteudoTecnologico' : $justificativaConteudoTecnologico,
             'dificuldadeObtencao': $justificativaDificuldadeObtencao,
             'imprescindibilidade': $justificativaImprescindibilidade,
-        }
+        },
+        fotos: getJSONfotos()
     };
+
+    function getJSONfotos() {
+        let fotos = []
+        for (const i in $fotos) {
+            fotos.push({'id': $fotos[i].id, 'src': $fotos[i].src})                 
+        }
+        return fotos;        
+    }   
         
     new Promise<boolean>((resolve) => {
         const modal: ModalSettings = {
@@ -76,7 +86,9 @@
     }).then((r: any) => {
         console.log('resolved response:', r);
         if (r) {
-            const content = JSON.stringify(jsonData);            
+            getJSONfotos();
+            const content = JSON.stringify(jsonData); 
+            //console.log(content);
             const a = document.createElement("a");
             const file = new Blob([content], {type: "text/plain"});
             a.href = URL.createObjectURL(file);
