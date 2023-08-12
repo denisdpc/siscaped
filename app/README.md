@@ -28,3 +28,17 @@ Abrir um navegador de internet e inserir o endereço:
 ```
 http://localhost:5173/sobre
 ```
+
+## Arquivo de distribuição (Tauri)
+
+No diretório _app_ executar o comando:
+
+```bash
+npm run tauri build
+```
+
+Ao término do processo serão exibidos os diretórios do arquivo executável e de instalação da aplicação.
+
+## Armazenamento de arquivo PDF
+
+O arquivo PDF gerado na aba _relatório_ é armazenado no diretório padrão do sistema operacional de _download_.
