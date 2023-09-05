@@ -134,7 +134,6 @@ https://codepen.io/someatoms/pen/vLYXWB?editors=1010
 
 </script>
 
-
 <br>
 <button on:click={ gerarPDF } 
         type="button" 
